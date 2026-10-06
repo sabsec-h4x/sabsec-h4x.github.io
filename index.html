@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Sabareeshwari S | Cyber Command & SOC Operations Portfolio</title>
-  <meta name="description" content="Sabareeshwari S — Cybersecurity Engineering Student, aspiring SOC Analyst, Threat Detection Engineer, and Blue Teamer.">
-  <meta name="keywords" content="Cybersecurity, SOC Analyst, Blue Team, SIEM, Wazuh, Splunk, Sysmon, Threat Hunting, CTF">
+  <meta name="description" content="Sabareeshwari S — Certified Ethical Hacker (CEH), Cybersecurity Engineering Student, aspiring SOC Analyst, Threat Detection Engineer, and Blue Teamer.">
+  <meta name="keywords" content="Cybersecurity, CEH, Certified Ethical Hacker, SOC Analyst, Blue Team, SIEM, Wazuh, Splunk, Sysmon, Threat Hunting, CTF">
   <meta name="author" content="Sabareeshwari S">
 
   <!-- OpenGraph / Social Cards -->
-  <meta property="og:title" content="Sabareeshwari S | SOC & Cyber Defense Portfolio">
+  <meta property="og:title" content="Sabareeshwari S | Certified Ethical Hacker (CEH) & SOC Defense Portfolio">
   <meta property="og:description" content="Defend. Detect. Investigate. Hands-on SOC, SIEM detection engineering, vulnerability analysis, and security research.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://sabsec-h4x.github.io/">
@@ -292,10 +292,19 @@
       color: var(--primary);
       letter-spacing: 0.08em;
     }
+    .nav-logo .badge-ceh {
+      font-size: 0.65rem;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: rgba(245, 158, 11, 0.12);
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      color: #f59e0b;
+      letter-spacing: 0.05em;
+    }
     .nav-menu {
       display: flex;
       align-items: center;
-      gap: 24px;
+      gap: 22px;
       list-style: none;
     }
     .nav-menu a {
@@ -410,6 +419,15 @@
     .btn-secondary:hover {
       border-color: var(--secondary);
       box-shadow: var(--glow-secondary);
+    }
+    .btn-amber {
+      background: rgba(245, 158, 11, 0.12);
+      border-color: rgba(245, 158, 11, 0.4);
+      color: #f59e0b;
+    }
+    .btn-amber:hover {
+      border-color: #f59e0b;
+      box-shadow: 0 0 20px rgba(245, 158, 11, 0.4);
     }
     .btn-sm {
       padding: 7px 14px;
@@ -603,9 +621,13 @@
       border-left: 2px solid var(--primary);
       padding-left: 12px;
     }
+    .metric-item.gold { border-left-color: #ffd166; }
+    .metric-item.silver { border-left-color: #cbd5e1; }
+    .metric-item.ceh { border-left-color: #f59e0b; }
+
     .metric-value {
       font-family: var(--font-display);
-      font-size: 1.45rem;
+      font-size: 1.4rem;
       font-weight: 800;
       color: var(--text-primary);
       line-height: 1.1;
@@ -916,7 +938,7 @@
     .project-link:hover { text-shadow: var(--glow-primary); }
 
     /* ==========================================================================
-       MODAL DIALOGS (COMMAND PALETTE & PROJECT DETAILS)
+       MODAL DIALOGS (COMMAND PALETTE, PROJECT DETAILS & CERTIFICATE VIEWER)
        ========================================================================== */
     .modal-overlay {
       position: fixed;
@@ -948,6 +970,9 @@
       position: relative;
       display: flex;
       flex-direction: column;
+    }
+    .modal-box.cert-modal-box {
+      width: min(840px, 100%);
     }
     .modal-box-head {
       padding: 18px 24px;
@@ -1082,25 +1107,36 @@
       border-radius: var(--radius-sm);
       background: rgba(255, 255, 255, 0.02);
       border: 1px solid var(--border-subtle);
+      transition: var(--transition);
+    }
+    .podium-card:hover {
+      border-color: var(--border-glow);
+      transform: translateX(4px);
     }
     .podium-rank {
       font-family: var(--font-display);
-      font-size: 2rem;
+      font-size: 1.8rem;
       font-weight: 800;
-      min-width: 50px;
+      min-width: 52px;
       color: var(--primary);
     }
     .podium-card.gold .podium-rank { color: #facc15; text-shadow: 0 0 16px rgba(250, 204, 21, 0.4); }
+    .podium-card.silver .podium-rank { color: #e2e8f0; text-shadow: 0 0 16px rgba(226, 232, 240, 0.4); }
     .podium-card.bronze .podium-rank { color: #fb923c; }
 
     /* ==========================================================================
        CERTIFICATIONS & PROOF OF CONTINUOUS LEARNING
        ========================================================================== */
     .cert-card {
-      min-height: 230px;
+      min-height: 240px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+    }
+    .cert-card.featured-cert {
+      border-color: rgba(245, 158, 11, 0.4);
+      background: linear-gradient(145deg, rgba(20, 26, 38, 0.9), rgba(12, 18, 30, 0.85));
+      box-shadow: 0 0 25px rgba(245, 158, 11, 0.15);
     }
     .cert-card h3 {
       font-size: 1.15rem;
@@ -1110,7 +1146,13 @@
       font-family: var(--font-mono);
       font-size: 0.78rem;
       color: var(--text-secondary);
-      margin-bottom: 16px;
+      margin-bottom: 6px;
+    }
+    .cert-meta {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: #94a3b8;
+      margin-bottom: 14px;
     }
     .cert-actions {
       display: flex;
@@ -1274,6 +1316,7 @@
       <a class="nav-logo" href="#home">
         Sabareeshwari S
         <span class="badge-tag">SOC / BLUE TEAM</span>
+        <span class="badge-ceh">CEH CERTIFIED</span>
       </a>
       
       <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Menu">MENU ☰</button>
@@ -1286,6 +1329,7 @@
         <li><a href="#experience">Experience</a></li>
         <li><a href="#team">T3AM KNULL</a></li>
         <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#education">Education</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
 
@@ -1318,16 +1362,19 @@
 
           <div class="hero-role-wrapper">
             <span>&gt; Focus: </span>
-            <span id="typewriterText">SOC Analyst & Threat Detection</span>
+            <span id="typewriterText">Certified Ethical Hacker (CEH)</span>
             <span class="cursor"></span>
           </div>
 
           <p class="hero-desc">
-            I'm <strong>Sabareeshwari S</strong>, a Cybersecurity Engineering student specializing in <strong>Blue Team operations</strong>, SIEM telemetry (Wazuh, Splunk), Sysmon logging, MITRE ATT&CK adversary mapping, DAST testing, and automated threat detection engineering.
+            I'm <strong>Sabareeshwari S</strong>, a <strong>Certified Ethical Hacker (CEH)</strong> and Cybersecurity Engineering student specializing in <strong>Blue Team operations</strong>, SIEM telemetry (Wazuh, Splunk), Sysmon logging, MITRE ATT&CK adversary mapping, DAST testing, and automated threat detection engineering.
           </p>
 
           <div class="hero-cta">
             <a class="btn btn-primary" href="#projects">Explore Security Projects</a>
+            <a class="btn btn-amber" onclick="openCertModal('ceh')">
+              View CEH Certificate 🎖️
+            </a>
             <a class="btn btn-secondary" href="https://drive.google.com/file/d/1PQ5mNkb475Bc5xqjcoUQ0DLiybV2MzrJ/view?usp=sharing" target="_blank" rel="noopener">
               View Verified Resume ↗
             </a>
@@ -1337,21 +1384,21 @@
           </div>
 
           <div class="hero-metrics">
-            <div class="metric-item">
+            <div class="metric-item gold">
               <div class="metric-value">1st Place</div>
-              <div class="metric-label">CTF Quest Champion</div>
+              <div class="metric-label">CTF Quest Winner</div>
+            </div>
+            <div class="metric-item silver">
+              <div class="metric-value">Runner-Up</div>
+              <div class="metric-label">Break the Web '26 CTF</div>
             </div>
             <div class="metric-item">
               <div class="metric-value">UT Austin</div>
-              <div class="metric-label">Security Hall of Fame</div>
+              <div class="metric-label">Hall of Fame</div>
             </div>
-            <div class="metric-item">
-              <div class="metric-value">5+</div>
-              <div class="metric-label">Defense Toolsets</div>
-            </div>
-            <div class="metric-item">
-              <div class="metric-value">100%</div>
-              <div class="metric-label">Hands-On Telemetry</div>
+            <div class="metric-item ceh">
+              <div class="metric-value">CEH</div>
+              <div class="metric-label">EC-Council Certified</div>
             </div>
           </div>
         </div>
@@ -1373,15 +1420,16 @@
 
             <div class="terminal-screen" id="terminalScreen">
               <div><span class="term-prompt">sabari@soc</span>:<span class="term-user">~</span>$ whoami</div>
-              <div class="term-res term-green">Sabareeshwari S — Cybersecurity Engineer & SOC Analyst</div>
+              <div class="term-res term-green">Sabareeshwari S — Certified Ethical Hacker (CEH) & SOC Analyst</div>
 
               <div><span class="term-prompt">sabari@soc</span>:<span class="term-user">~</span>$ cat focus.txt</div>
               <div class="term-res">
+                [+] CEH Certified (EC-Council #ECC0467125893)<br>
                 [+] SIEM Monitoring (Wazuh & Splunk)<br>
                 [+] Endpoint Telemetry & Sysmon Triage<br>
                 [+] MITRE ATT&CK Framework Mapping<br>
-                [+] DAST & Web Vulnerability Assessment<br>
-                [+] Python Security Automation & Tooling
+                [+] Web Vulnerability Assessment & DAST<br>
+                [+] Runner-Up: Break the Web '26 CTF | 1st: CTF Quest
               </div>
 
               <div><span class="term-prompt">sabari@soc</span>:<span class="term-user">~</span>$ systemctl status soc-lab.service</div>
@@ -1403,9 +1451,9 @@
             <div class="terminal-pills">
               <button class="term-pill" onclick="runTermCommand('help')">help</button>
               <button class="term-pill" onclick="runTermCommand('skills')">skills</button>
-              <button class="term-pill" onclick="runTermCommand('projects')">projects</button>
-              <button class="term-pill" onclick="runTermCommand('lab-status')">lab-status</button>
               <button class="term-pill" onclick="runTermCommand('certs')">certs</button>
+              <button class="term-pill" onclick="runTermCommand('achievements')">achievements</button>
+              <button class="term-pill" onclick="runTermCommand('projects')">projects</button>
               <button class="term-pill" onclick="runTermCommand('clear')">clear</button>
             </div>
           </div>
@@ -1428,10 +1476,10 @@
           <div class="bento-card reveal">
             <div class="card-head">
               <div class="eyebrow">BACKGROUND & FOCUS</div>
-              <span class="badge badge-primary">BLUE TEAM SPECIALIST</span>
+              <span class="badge badge-primary">BLUE TEAM & CEH</span>
             </div>
             <p style="font-size:1.02rem;color:var(--text-secondary);margin-bottom:18px">
-              I am a <strong>Cybersecurity Engineering student</strong> specializing in defensive security operations, with hands-on experience in SIEM telemetry, Wazuh, Splunk, Sysmon, packet-level traffic inspection, alert triage, and incident response.
+              I am a <strong>Certified Ethical Hacker (CEH)</strong> and Cybersecurity Engineering student at PSNA College of Engineering and Technology (Anna University) with hands-on experience in defensive security operations, VAPT, SIEM telemetry, Wazuh, Splunk, Sysmon, and incident response.
             </p>
             <p style="font-size:0.95rem;color:var(--text-secondary);margin-bottom:24px">
               My practical experience spans both defensive monitoring and proactive assessment: executing DAST testing on live vulnerability disclosure programs, performing OSINT and phishing investigation, building security automation tools in Python, and competing in collegiate and national CTF competitions with <strong>T3AM KNULL</strong>.
@@ -1470,9 +1518,9 @@
                 <div class="eyebrow">PILLAR 02</div>
                 <div class="badge badge-cyan">OFFENSIVE AUDIT</div>
               </div>
-              <h3 style="font-size:1.2rem;margin-bottom:6px">Vulnerability Research & DAST</h3>
+              <h3 style="font-size:1.2rem;margin-bottom:6px">Vulnerability Research, VAPT & DAST</h3>
               <p style="font-size:0.88rem;color:var(--text-secondary)">
-                Conducting web vulnerability assessments and responsible disclosure. Responsible discovery recognized in the <strong>University of Texas at Austin (UT Austin) Security Hall of Fame</strong>.
+                Conducting web vulnerability assessments, OWASP Top 10 testing, and responsible disclosure. Responsible discovery recognized in the <strong>University of Texas at Austin (UT Austin) Security Hall of Fame</strong>.
               </p>
             </div>
 
@@ -1515,9 +1563,9 @@
               <span class="stack-tag">Splunk Enterprise</span>
               <span class="stack-tag">Sysmon</span>
               <span class="stack-tag">Wireshark</span>
-              <span class="stack-tag">Splunk Phantom</span>
+              <span class="stack-tag">Burp Suite</span>
+              <span class="stack-tag">Craxify</span>
               <span class="stack-tag">VirusTotal API</span>
-              <span class="stack-tag">n8n Automation</span>
             </div>
           </div>
 
@@ -1533,25 +1581,25 @@
               <span class="stack-tag">Alert Triage</span>
               <span class="stack-tag">Incident Response</span>
               <span class="stack-tag">Threat Detection</span>
+              <span class="stack-tag">Malware Analysis</span>
               <span class="stack-tag">MITRE ATT&CK</span>
-              <span class="stack-tag">Endpoint Auditing</span>
             </div>
           </div>
 
           <div class="bento-card reveal">
             <div class="card-head">
-              <div class="eyebrow">RESEARCH</div>
+              <div class="eyebrow">RESEARCH & AUDITING</div>
               <div class="card-icon">🔍</div>
             </div>
-            <h3 style="font-size:1.2rem;margin-bottom:8px">Threat Research & DAST</h3>
+            <h3 style="font-size:1.2rem;margin-bottom:8px">VAPT & Security Concepts</h3>
             <p style="font-size:0.85rem;color:var(--text-secondary);margin-bottom:14px">Vulnerability analysis, threat hunting, and intelligence.</p>
             <div class="stack-tags">
+              <span class="stack-tag">VAPT</span>
+              <span class="stack-tag">OWASP Top 10</span>
               <span class="stack-tag">Phishing Investigation</span>
-              <span class="stack-tag">Malware Analysis</span>
-              <span class="stack-tag">OSINT</span>
-              <span class="stack-tag">Google Dorking</span>
+              <span class="stack-tag">OSINT / Dorking</span>
               <span class="stack-tag">DAST Testing</span>
-              <span class="stack-tag">CTF Competitions</span>
+              <span class="stack-tag">WAF / IDS / IPS</span>
             </div>
           </div>
 
@@ -1581,9 +1629,9 @@
             <div class="stack-tags">
               <span class="stack-tag">Kali Linux</span>
               <span class="stack-tag">Ubuntu Server</span>
-              <span class="stack-tag">Windows 10/11 Enterprise</span>
+              <span class="stack-tag">Windows 10/11</span>
               <span class="stack-tag">Windows Registry</span>
-              <span class="stack-tag">VirtualBox / VMware</span>
+              <span class="stack-tag">VirtualBox</span>
             </div>
           </div>
 
@@ -1595,9 +1643,9 @@
             <h3 style="font-size:1.2rem;margin-bottom:8px">Programming & Automation</h3>
             <p style="font-size:0.85rem;color:var(--text-secondary);margin-bottom:14px">Scripting defensive utilities, parsers, and API integrations.</p>
             <div class="stack-tags">
-              <span class="stack-tag">Python 3</span>
-              <span class="stack-tag">Bash Scripting</span>
+              <span class="stack-tag">Python (Basic)</span>
               <span class="stack-tag">C Programming</span>
+              <span class="stack-tag">Bash Scripting</span>
               <span class="stack-tag">FastAPI / Flask</span>
               <span class="stack-tag">Regex & Parsers</span>
             </div>
@@ -1729,7 +1777,7 @@
         <div class="section-head reveal">
           <div>
             <div class="eyebrow">06 // COMPETITIVE CYBERSECURITY</div>
-            <h2>T3AM KNULL.</h2>
+            <h2>T3AM KNULL & CTF Achievements.</h2>
           </div>
           <p>Competitive Capture The Flag (CTF) collaboration solving high-complexity offensive and defensive challenges.</p>
         </div>
@@ -1756,10 +1804,18 @@
           </div>
 
           <div class="podium-list reveal">
+            <div class="podium-card silver">
+              <div class="podium-rank">2nd</div>
+              <div>
+                <h4 style="font-size:1.05rem;color:#fff">Runner-Up — Break the Web ’26 CTF</h4>
+                <p style="font-family:var(--font-mono);font-size:0.75rem;color:var(--text-secondary)">Runner-Up Finish · Web Application Exploitation & Security</p>
+              </div>
+            </div>
+
             <div class="podium-card gold">
               <div class="podium-rank">1st</div>
               <div>
-                <h4 style="font-size:1.05rem;color:#fff">CTF Quest · Thiran Hackathon 2026</h4>
+                <h4 style="font-size:1.05rem;color:#fff">1st Place, CTF Quest · Thiran Hackathon 2026</h4>
                 <p style="font-family:var(--font-mono);font-size:0.75rem;color:var(--text-secondary)">Champion Finish · Multi-category Cyber Challenge</p>
               </div>
             </div>
@@ -1767,7 +1823,7 @@
             <div class="podium-card bronze">
               <div class="podium-rank">3rd</div>
               <div>
-                <h4 style="font-size:1.05rem;color:#fff">PhantomFlags · DRESTEIN '25</h4>
+                <h4 style="font-size:1.05rem;color:#fff">3rd Place, PhantomFlags · DRESTEIN '25</h4>
                 <p style="font-family:var(--font-mono);font-size:0.75rem;color:var(--text-secondary)">Podium Placement · National Technical Symposium CTF</p>
               </div>
             </div>
@@ -1775,7 +1831,7 @@
             <div class="podium-card bronze">
               <div class="podium-rank">3rd</div>
               <div>
-                <h4 style="font-size:1.05rem;color:#fff">Cybercom CTF 2025</h4>
+                <h4 style="font-size:1.05rem;color:#fff">3rd Place, Cybercom CTF 2025</h4>
                 <p style="font-family:var(--font-mono);font-size:0.75rem;color:var(--text-secondary)">Podium Finish · Competitive Collegiate Tournament</p>
               </div>
             </div>
@@ -1801,12 +1857,39 @@
       </div>
     </section>
 
+    <!-- EDUCATION SECTION -->
+    <section id="education" class="section-padding">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">08 // ACADEMIC FOUNDATION</div>
+            <h2>Education.</h2>
+          </div>
+          <p>Rigorous undergraduate engineering program in cybersecurity fundamentals and software systems.</p>
+        </div>
+
+        <div class="bento-card reveal" style="border-left:4px solid var(--primary)">
+          <div class="card-head">
+            <div class="eyebrow">2023 — 2027 · FULL-TIME</div>
+            <span class="badge badge-primary">CGPA: 8.31 / 10</span>
+          </div>
+          <h3 style="font-size:1.45rem;margin-bottom:6px">Bachelor of Engineering (B.E.) in Computer Science and Engineering (Cyber Security)</h3>
+          <p style="color:var(--secondary);font-family:var(--font-mono);font-size:0.9rem;margin-bottom:12px">
+            PSNA College of Engineering and Technology · Affiliated to Anna University
+          </p>
+          <p style="color:var(--text-secondary);font-size:0.9rem;line-height:1.6">
+            Core Curriculum & Focus: Security Operations, VAPT, Cryptography, Network Protocols, Operating System Internals, Cyber Laws, Ethical Hacking, and Threat Defense Engineering.
+          </p>
+        </div>
+      </div>
+    </section>
+
     <!-- CONTACT TRANSMISSION HUB -->
     <section id="contact" class="section-padding">
       <div class="container">
         <div class="contact-wrap">
           <div class="reveal">
-            <div class="eyebrow">08 // TRANSMISSION HUB</div>
+            <div class="eyebrow">09 // TRANSMISSION HUB</div>
             <h2 style="font-family:var(--font-display);font-size:clamp(2.4rem,4.5vw,3.8rem);font-weight:800;line-height:1.05;margin-bottom:18px">
               Let's build something secure.
             </h2>
@@ -1870,7 +1953,7 @@
   <footer>
     <div class="container footer-wrap">
       <div>
-        © 2026 Sabareeshwari S · Cyber Command & Defense Operations Portfolio
+        © 2026 Sabareeshwari S · Certified Ethical Hacker (CEH) · SOC & Cyber Defense Portfolio
       </div>
       <div style="display:flex;gap:20px">
         <a href="#home">Back to Top ↑</a>
@@ -1891,14 +1974,17 @@
         <button class="modal-close" onclick="closeCommandPalette()">✕</button>
       </div>
       <div class="modal-box-body">
-        <input type="text" id="paletteSearch" class="palette-input" placeholder="Type a section or command (e.g., 'projects', 'resume', 'email')..." oninput="filterPalette()">
+        <input type="text" id="paletteSearch" class="palette-input" placeholder="Type a section or command (e.g., 'ceh', 'projects', 'resume', 'email')..." oninput="filterPalette()">
         <ul class="palette-list" id="paletteList">
+          <li class="palette-item" onclick="openCertModal('ceh'); closeCommandPalette()"><span>🎖️ View EC-Council CEH Certificate</span><small>Verified Credential</small></li>
           <li class="palette-item" onclick="navigatePalette('#projects')"><span>📁 Jump to Practical Projects</span><small>Section 04</small></li>
           <li class="palette-item" onclick="navigatePalette('#soc-lab')"><span>🛡️ Inspect Home SOC Lab</span><small>Section 03</small></li>
           <li class="palette-item" onclick="navigatePalette('#skills')"><span>⚡ View Technical Skills & Tools</span><small>Section 02</small></li>
+          <li class="palette-item" onclick="navigatePalette('#team')"><span>🏆 View CTF Achievements & T3AM KNULL</span><small>Section 06</small></li>
           <li class="palette-item" onclick="navigatePalette('#certifications')"><span>📜 View Verified Certifications</span><small>Section 07</small></li>
+          <li class="palette-item" onclick="navigatePalette('#education')"><span>🎓 Education & CGPA</span><small>Section 08</small></li>
           <li class="palette-item" onclick="navigatePalette('#experience')"><span>💼 View Experience & Internships</span><small>Section 05</small></li>
-          <li class="palette-item" onclick="navigatePalette('#contact')"><span>📬 Contact Information</span><small>Section 08</small></li>
+          <li class="palette-item" onclick="navigatePalette('#contact')"><span>📬 Contact Information</span><small>Section 09</small></li>
           <li class="palette-item" onclick="window.open('https://drive.google.com/file/d/1PQ5mNkb475Bc5xqjcoUQ0DLiybV2MzrJ/view?usp=sharing','_blank')"><span>📄 View Verified Resume</span><small>Google Drive ↗</small></li>
           <li class="palette-item" onclick="copyEmail(); closeCommandPalette()"><span>📋 Copy Email Address</span><small>Clipboard</small></li>
           <li class="palette-item" onclick="toggleAudio(); closeCommandPalette()"><span>🔊 Toggle Tactical Audio</span><small>Web Audio API</small></li>
@@ -1916,6 +2002,35 @@
       </div>
       <div class="modal-box-body" id="modalProjBody">
         <!-- Injected via JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- CERTIFICATE LIGHTBOX MODAL -->
+  <div class="modal-overlay" id="certViewerModal">
+    <div class="modal-box cert-modal-box">
+      <div class="modal-box-head">
+        <div style="font-family:var(--font-mono);font-size:0.8rem;color:var(--amber)">VERIFIED CREDENTIAL // EC-COUNCIL</div>
+        <button class="modal-close" onclick="closeCertModal()">✕</button>
+      </div>
+      <div class="modal-box-body">
+        <div style="text-align:center;margin-bottom:16px">
+          <img src="assets/certificates/ceh-certificate.png" alt="EC-Council Certified Ethical Hacker Certificate - Sabareeshwari S" style="border-radius:8px;border:1px solid rgba(255,255,255,0.1);max-width:100%;box-shadow:0 15px 40px rgba(0,0,0,0.7)">
+        </div>
+        <div style="background:rgba(255,255,255,0.02);border:1px solid var(--border-subtle);border-radius:8px;padding:16px;font-family:var(--font-mono);font-size:0.78rem;color:var(--text-secondary)">
+          <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:8px">
+            <span>Certification Number: <strong style="color:#fff">ECC0467125893</strong></span>
+            <span>Issued On: <strong style="color:var(--primary)">18 September, 2026</strong></span>
+          </div>
+          <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px">
+            <span>Renewable On: <strong>01 October, 2027</strong></span>
+            <span>Accreditation: <strong>ANSI Accredited (ISO/IEC 17024)</strong></span>
+          </div>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:18px">
+          <a class="btn btn-amber" href="assets/certificates/ceh-certificate.png" target="_blank" rel="noopener">Open High-Resolution Image ↗</a>
+          <button class="btn btn-secondary" onclick="closeCertModal()">Close Viewer</button>
+        </div>
       </div>
     </div>
   </div>
@@ -1966,6 +2081,8 @@
        3. TYPEWRITER EFFECT
        ========================================================================== */
     const roles = [
+      "Certified Ethical Hacker (CEH)",
+      "Runner-Up: Break the Web '26 CTF",
       "SOC Analyst & Threat Detection",
       "Blue Teamer & Incident Responder",
       "SIEM Telemetry Engineer (Wazuh/Splunk)",
@@ -2108,7 +2225,7 @@
         role: "Cybersecurity Intern",
         company: "Unified Mentor Pvt. Ltd.",
         bullets: [
-          "Completed hands-on operational training in networking, web security, OSINT, malware analysis, cryptography, and phishing triage.",
+          "Applied cybersecurity fundamentals across networking, web security, OSINT, malware analysis, cryptography, and phishing investigation.",
           "Architected and deployed SentinelShield (WAF & IDS) with machine learning-based anomaly scoring.",
           "Engineered an automated Windows Registry Change Monitoring & Persistence Detection tool in Python."
         ]
@@ -2136,15 +2253,30 @@
 
     const certsData = [
       {
+        name: "Certified Ethical Hacker (CEH)",
+        issuer: "EC-Council",
+        status: "VERIFIED",
+        certId: "ECC0467125893",
+        issued: "18 September, 2026",
+        isImage: true,
+        links: ["assets/certificates/ceh-certificate.png"]
+      },
+      {
         name: "Security Operations Fundamentals",
         issuer: "Palo Alto Networks",
         status: "COMPLETED",
+        certId: null,
+        issued: "2026",
+        isImage: false,
         links: ["https://drive.google.com/file/d/1UfHGrAC8yhiOLTaEGTSLe6IwXBSaj6GW/view?usp=sharing"]
       },
       {
         name: "Introduction to Splunk & Scheduling Reports and Alerts",
         issuer: "Splunk",
         status: "COMPLETED",
+        certId: null,
+        issued: "2026",
+        isImage: false,
         links: [
           "https://drive.google.com/file/d/1isImuyqnGRh8B8fqziIl5XURM9DKBo4n/view?usp=sharing",
           "https://drive.google.com/file/d/1I23UoZqzb33XscFf9mU9gLbDgW3B-Bbb/view?usp=sharing"
@@ -2154,24 +2286,27 @@
         name: "The Absolute Guide to MITRE ATT&CK",
         issuer: "Purple Academy / Picus Security",
         status: "COMPLETED",
+        certId: null,
+        issued: "2026",
+        isImage: false,
         links: ["https://drive.google.com/file/d/11JOm7MjbWNY21H8vptE2Wmsp1KR0BIuY/view?usp=sharing"]
       },
       {
         name: "Cybersecurity Essentials & Intro to Cyber Security",
         issuer: "Cisco Networking Academy",
         status: "COMPLETED",
+        certId: null,
+        issued: "2026",
+        isImage: false,
         links: ["https://drive.google.com/file/d/1bqV2tQkk8TRpTdV4C_Q9VBplurKZ5-OF/view?usp=sharing"]
       },
       {
         name: "Linux Fundamentals",
         issuer: "TCM Security",
         status: "COMPLETED",
-        links: []
-      },
-      {
-        name: "Certified Ethical Hacker (CEH)",
-        issuer: "EC-Council",
-        status: "ONGOING",
+        certId: null,
+        issued: "2026",
+        isImage: false,
         links: []
       }
     ];
@@ -2255,6 +2390,15 @@
       document.getElementById('projectModal').classList.remove('active');
     }
 
+    function openCertModal(type) {
+      playTacticalBeep(900, 'sine', 0.08);
+      document.getElementById('certViewerModal').classList.add('active');
+    }
+
+    function closeCertModal() {
+      document.getElementById('certViewerModal').classList.remove('active');
+    }
+
     function renderExperience() {
       document.getElementById('experienceWrap').innerHTML = experienceData.map(e => `
         <div class="bento-card timeline-node reveal">
@@ -2273,25 +2417,29 @@
 
     function renderCertifications() {
       document.getElementById('certGrid').innerHTML = certsData.map((c, i) => `
-        <article class="bento-card cert-card reveal">
+        <article class="bento-card cert-card reveal ${c.certId ? 'featured-cert' : ''}">
           <div>
             <div class="card-head">
               <div class="eyebrow">CREDENTIAL 0${i + 1}</div>
-              <span class="badge ${c.status === 'COMPLETED' ? 'badge-primary' : 'badge-amber'}">${c.status}</span>
+              <span class="badge ${c.status === 'VERIFIED' ? 'badge-amber' : (c.status === 'COMPLETED' ? 'badge-primary' : 'badge-amber')}">${c.status}</span>
             </div>
             <h3>${c.name}</h3>
             <div class="cert-issuer">Issuer: ${c.issuer}</div>
+            ${c.certId ? `<div class="cert-meta">Certificate ID: <strong style="color:#fff">${c.certId}</strong> · Issued: ${c.issued}</div>` : ''}
           </div>
           <div class="cert-actions">
-            ${c.links.length > 0 
-              ? c.links.map((link, idx) => `
-                  <a class="btn btn-sm" href="${link}" target="_blank" rel="noopener">
-                    View Certificate ${c.links.length > 1 ? '#' + (idx + 1) : ''} ↗
-                  </a>
-                `).join('')
-              : `<span style="font-family:var(--font-mono);font-size:0.7rem;color:var(--text-muted)">
-                  ${c.status === 'ONGOING' ? 'Coursework in progress' : 'Verification on file'}
-                </span>`
+            ${c.isImage 
+              ? `<button class="btn btn-sm btn-amber" onclick="openCertModal('ceh')">View Certificate 🎖️</button>` 
+              : (c.links.length > 0 
+                ? c.links.map((link, idx) => `
+                    <a class="btn btn-sm" href="${link}" target="_blank" rel="noopener">
+                      View Certificate ${c.links.length > 1 ? '#' + (idx + 1) : ''} ↗
+                    </a>
+                  `).join('')
+                : `<span style="font-family:var(--font-mono);font-size:0.7rem;color:var(--text-muted)">
+                    Verification on file
+                  </span>`
+              )
             }
           </div>
         </article>
@@ -2307,7 +2455,7 @@
         role: "Adversary Emulation & Controlled Security Scenarios",
         specs: [
           "<b>Role:</b> Adversary simulation machine executing non-destructive tests",
-          "<b>Tools:</b> Nmap, Metasploit, Hydra, cURL, Responder",
+          "<b>Tools:</b> Nmap, Metasploit, Hydra, cURL, Responder, Burp Suite",
           "<b>Target Host:</b> Windows 11 Endpoint (192.168.56.105)",
           "<b>Network Scope:</b> Isolated Host-Only Subnet (192.168.56.0/24)"
         ]
@@ -2363,23 +2511,38 @@
        ========================================================================== */
     const terminalCommands = {
       help: () => `Available commands:<br>
-        &nbsp;&nbsp;<span class="term-green">whoami</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Sabareeshwari's profile summary<br>
-        &nbsp;&nbsp;<span class="term-green">skills</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Technical toolset & security proficiencies<br>
-        &nbsp;&nbsp;<span class="term-green">projects</span>&nbsp;&nbsp;&nbsp;- Key defensive engineering repositories<br>
-        &nbsp;&nbsp;<span class="term-green">lab-status</span>&nbsp;- Live telemetry environment specifications<br>
-        &nbsp;&nbsp;<span class="term-green">certs</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Verified certifications list<br>
-        &nbsp;&nbsp;<span class="term-green">contact</span>&nbsp;&nbsp;&nbsp;&nbsp;- Direct communication channels<br>
-        &nbsp;&nbsp;<span class="term-green">clear</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Clear terminal window`,
+        &nbsp;&nbsp;<span class="term-green">whoami</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Sabareeshwari's profile summary<br>
+        &nbsp;&nbsp;<span class="term-green">skills</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Technical toolset & security proficiencies<br>
+        &nbsp;&nbsp;<span class="term-green">certs</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Certified Ethical Hacker (CEH) & credentials<br>
+        &nbsp;&nbsp;<span class="term-green">achievements</span>&nbsp;- CTF awards & Security Hall of Fame<br>
+        &nbsp;&nbsp;<span class="term-green">projects</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Key defensive engineering repositories<br>
+        &nbsp;&nbsp;<span class="term-green">lab-status</span>&nbsp;&nbsp;&nbsp;- Live telemetry environment specifications<br>
+        &nbsp;&nbsp;<span class="term-green">contact</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Direct communication channels<br>
+        &nbsp;&nbsp;<span class="term-green">clear</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Clear terminal window`,
       
-      whoami: () => `Sabareeshwari S — Cybersecurity Engineering Student & Aspiring SOC Analyst.<br>
-        Specialized in Blue Team operations, SIEM detection engineering, Sysmon triage, and CTF security research.`,
+      whoami: () => `Sabareeshwari S — Certified Ethical Hacker (CEH) & Cybersecurity Engineering Student.<br>
+        Specialized in Blue Team operations, VAPT, SIEM detection engineering, Sysmon triage, and competitive CTFs (T3AM KNULL).`,
       
-      skills: () => `SIEM: Wazuh, Splunk, Sysmon, Wireshark, n8n<br>
-        SOC: Alert Triage, Incident Response, MITRE ATT&CK, Threat Hunting<br>
-        Offensive/DAST: Web Testing, OSINT, Phishing Analysis<br>
-        Languages: Python, Bash, C`,
+      skills: () => `SIEM & Tools: Wazuh, Splunk, Sysmon, Wireshark, Burp Suite, Craxify, VirusTotal API<br>
+        SOC: Alert Triage, Incident Response, MITRE ATT&CK, Threat Hunting, Malware Analysis<br>
+        VAPT & Security: VAPT, OWASP Top 10, DAST, OSINT, Phishing Analysis, WAF/IDS/IPS<br>
+        Languages: Python (basic), C, Bash`,
       
-      projects: () => `1. [Home SOC Lab] - Wazuh + Sysmon + Windows + Kali telemetry<br>
+      certs: () => `[+] EC-Council: Certified Ethical Hacker (CEH) - ID: ECC0467125893 [VERIFIED]<br>
+        [+] Palo Alto Networks: Security Operations Fundamentals [COMPLETED]<br>
+        [+] Splunk: Intro to Splunk & Scheduling Alerts (Parts 1 & 2) [COMPLETED]<br>
+        [+] Picus Security: The Absolute Guide to MITRE ATT&CK [COMPLETED]<br>
+        [+] Cisco: Cybersecurity Essentials & Intro to Cyber Security [COMPLETED]<br>
+        [+] TCM Security: Linux Fundamentals [COMPLETED]`,
+
+      achievements: () => `[1] Runner-Up – Break the Web ’26 CTF<br>
+        [2] Featured on the UT Austin Security Hall of Fame (Responsible Disclosure)<br>
+        [3] 1st Place, CTF Quest — Thiran Hackathon 2026<br>
+        [4] 3rd Place, PhantomFlags — DRESTEIN '25<br>
+        [5] 3rd Place, Cybercom CTF 2025<br>
+        [6] Lead CTF Organizer — Knull CTF, Root@war Event (2025)`,
+      
+      projects: () => `1. [Home SOC Lab] - Wazuh + Sysmon + Windows 11 + Kali telemetry<br>
         2. [VoidScan] - Automated reconnaissance & vulnerability correlation<br>
         3. [Multi-Layer Phishing Tool] - IMAP inbox & VirusTotal analysis<br>
         4. [SentinelShield] - ML-powered WAF & Intrusion Detection System<br>
@@ -2388,12 +2551,6 @@
       'lab-status': () => `Endpoint: Windows 11 Pro (SABU: 192.168.56.105) - Wazuh Agent 4.14.7 Active<br>
         Manager: Ubuntu Server (192.168.56.104) - Port TCP 1514 Listening<br>
         Telemetry: Application, Security, System, Sysmon/Operational (Event IDs 1, 3, 5, 11, 12, 13, 22)`,
-      
-      certs: () => `[+] Palo Alto Networks: Security Operations Fundamentals<br>
-        [+] Splunk: Intro to Splunk & Scheduling Alerts (Parts 1 & 2)<br>
-        [+] Picus Security: The Absolute Guide to MITRE ATT&CK<br>
-        [+] Cisco: Cybersecurity Essentials<br>
-        [+] EC-Council: CEH (Ongoing)`,
       
       contact: () => `Email: sabariselvarajan1119@gmail.com<br>
         GitHub: https://github.com/sabsec-h4x<br>
@@ -2475,6 +2632,7 @@
       if (e.key === 'Escape') {
         closeCommandPalette();
         closeProjectModal();
+        closeCertModal();
       }
     });
 
