@@ -1,1128 +1,2602 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="emerald">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Sabareeshwari S | Cyber Command & SOC Operations Portfolio</title>
-<meta name="description" content="Sabareeshwari S — Cybersecurity Engineering Student, aspiring SOC Analyst, Threat Detection Engineer, and Blue Teamer.">
-<meta name="keywords" content="Cybersecurity, SOC Analyst, Blue Team, SIEM, Wazuh, Splunk, Sysmon, Threat Hunting, CTF">
-<meta name="author" content="Sabareeshwari S">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Sabareeshwari S | Cyber Command & SOC Operations Portfolio</title>
+  <meta name="description" content="Sabareeshwari S — Cybersecurity Engineering Student, aspiring SOC Analyst, Threat Detection Engineer, and Blue Teamer.">
+  <meta name="keywords" content="Cybersecurity, SOC Analyst, Blue Team, SIEM, Wazuh, Splunk, Sysmon, Threat Hunting, CTF">
+  <meta name="author" content="Sabareeshwari S">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <!-- OpenGraph / Social Cards -->
+  <meta property="og:title" content="Sabareeshwari S | SOC & Cyber Defense Portfolio">
+  <meta property="og:description" content="Defend. Detect. Investigate. Hands-on SOC, SIEM detection engineering, vulnerability analysis, and security research.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sabsec-h4x.github.io/">
 
-<style>
-:root {
-  --bg-deep: #030712;
-  --bg-dark: #050b14;
-  --bg-card: rgba(8, 17, 30, 0.78);
-  --bg-card-hover: rgba(14, 28, 48, 0.88);
-  --panel-border: rgba(0, 245, 160, 0.16);
-  --panel-border-glow: rgba(0, 245, 160, 0.45);
-  --text-main: #f0fdf4;
-  --text-muted: #849bb5;
-  --text-dim: #4d6582;
-  --neon-cyan: #00f5a0;
-  --neon-blue: #00d2ff;
-  --neon-purple: #9d4edd;
-  --neon-green: #10b981;
-  --neon-amber: #f59e0b;
-  --neon-red: #ef4444;
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
-  --font-display: 'Space Grotesk', 'Inter', sans-serif;
-  --max-w: 1220px;
-  --glow-cyan: 0 0 25px rgba(0, 245, 160, 0.28);
-  --glow-blue: 0 0 25px rgba(0, 210, 255, 0.25);
-  --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
-body {
-  background-color: var(--bg-deep);
-  color: var(--text-main);
-  font-family: var(--font-sans);
-  line-height: 1.65;
-  overflow-x: hidden;
-  position: relative;
-  min-height: 100vh;
-  -webkit-font-smoothing: antialiased;
-}
-#cyber-canvas { position: fixed; inset: 0; z-index: -2; pointer-events: none; opacity: 0.65; }
-.ambient-grid {
-  position: fixed; inset: 0; z-index: -3; pointer-events: none;
-  background-image: linear-gradient(rgba(0, 245, 160, 0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 245, 160, 0.035) 1px, transparent 1px);
-  background-size: 48px 48px;
-  mask-image: radial-gradient(circle at 50% 30%, black 40%, transparent 85%);
-}
-.ambient-glow {
-  position: fixed; inset: 0; z-index: -4; pointer-events: none;
-  background: radial-gradient(circle at 15% 15%, rgba(0, 245, 160, 0.08), transparent 45%), radial-gradient(circle at 85% 45%, rgba(0, 210, 255, 0.07), transparent 40%), radial-gradient(circle at 50% 85%, rgba(157, 78, 221, 0.06), transparent 45%);
-}
-a { color: inherit; text-decoration: none; transition: var(--transition); }
-img { max-width: 100%; height: auto; }
-code, pre { font-family: var(--font-mono); }
-.container { width: min(var(--max-w), 92%); margin: 0 auto; }
-.section-padding { padding: 90px 0; border-top: 1px solid var(--panel-border); }
-.eyebrow {
-  font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.16em;
-  color: var(--neon-cyan); text-transform: uppercase; display: inline-flex; align-items: center; gap: 8px; margin-bottom: 8px;
-}
-.eyebrow::before { content: "::"; color: var(--neon-blue); }
-.section-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; margin-bottom: 40px; }
-.section-head h2 { font-family: var(--font-display); font-size: clamp(2rem, 3.8vw, 3.2rem); font-weight: 700; letter-spacing: -0.04em; line-height: 1.1; }
-.section-head p { color: var(--text-muted); max-width: 480px; font-size: 0.95rem; }
+  <!-- Google Fonts: Inter, Space Grotesk, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
 
-.top-command-strip {
-  background: rgba(3, 7, 18, 0.94); border-bottom: 1px solid var(--panel-border); font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted); padding: 6px 0; position: relative; z-index: 40;
-}
-.top-command-strip .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
-.hud-item { display: inline-flex; align-items: center; gap: 6px; }
-.hud-indicator { width: 7px; height: 7px; border-radius: 50%; background: var(--neon-cyan); box-shadow: 0 0 10px var(--neon-cyan); animation: pulse-dot 2s infinite ease-in-out; }
-@keyframes pulse-dot { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.85); } }
-.sound-toggle-btn {
-  background: transparent; border: 1px solid var(--panel-border); color: var(--text-muted); font-family: var(--font-mono); font-size: 0.7rem; padding: 2px 8px; border-radius: 4px; cursor: pointer; display: inline-flex; align-items: center; gap: 4px;
-}
-.sound-toggle-btn:hover { border-color: var(--neon-cyan); color: var(--neon-cyan); }
+  <style>
+    /* ==========================================================================
+       DESIGN SYSTEM & DYNAMIC THEMES (OBSIDIAN TECH BENTO 2026)
+       ========================================================================== */
+    :root {
+      --bg-base: #06090e;
+      --bg-surface: #0a0f18;
+      --bg-card: rgba(12, 19, 31, 0.75);
+      --bg-card-hover: rgba(16, 26, 43, 0.88);
+      --bg-glass: rgba(10, 16, 26, 0.65);
+      
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-accent: rgba(0, 245, 160, 0.22);
+      --border-glow: rgba(0, 245, 160, 0.45);
+      
+      --text-primary: #f0fdf4;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --text-inverse: #020f09;
+      
+      --primary: #00f5a0;
+      --secondary: #00d2ff;
+      --violet: #8b5cf6;
+      --amber: #f59e0b;
+      --danger: #ff3366;
+      --cyan: #38bdf8;
+      
+      --glow-primary: 0 0 24px rgba(0, 245, 160, 0.32);
+      --glow-secondary: 0 0 24px rgba(0, 210, 255, 0.28);
+      --glow-card: 0 16px 40px -12px rgba(0, 0, 0, 0.6);
+      
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+      --font-display: 'Space Grotesk', var(--font-sans);
+      
+      --max-w: 1220px;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
 
-nav { position: sticky; top: 0; z-index: 50; background: rgba(3, 7, 18, 0.82); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--panel-border); }
-.nav-wrapper { height: 72px; display: flex; align-items: center; justify-content: space-between; }
-.logo { font-family: var(--font-mono); font-weight: 700; font-size: 1.05rem; letter-spacing: -0.02em; color: var(--text-main); display: flex; align-items: center; gap: 8px; }
-.logo span.callsign { color: var(--neon-cyan); background: rgba(0, 245, 160, 0.1); border: 1px solid rgba(0, 245, 160, 0.25); font-size: 0.65rem; padding: 3px 7px; border-radius: 4px; letter-spacing: 0.08em; }
-.nav-links { display: flex; align-items: center; gap: 22px; list-style: none; }
-.nav-links a { font-size: 0.82rem; font-weight: 500; color: var(--text-muted); position: relative; padding: 6px 0; }
-.nav-links a:hover, .nav-links a.active { color: var(--neon-cyan); }
-.nav-links a::after { content: ""; position: absolute; bottom: 0; left: 0; width: 0%; height: 2px; background: var(--neon-cyan); box-shadow: 0 0 8px var(--neon-cyan); transition: width 0.25s ease; }
-.nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
-.menu-btn { display: none; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--panel-border); color: var(--text-main); padding: 8px 12px; border-radius: 6px; font-family: var(--font-mono); font-size: 0.75rem; cursor: pointer; }
+    [data-theme="violet"] {
+      --primary: #a855f7;
+      --secondary: #06b6d4;
+      --border-accent: rgba(168, 85, 247, 0.25);
+      --border-glow: rgba(168, 85, 247, 0.5);
+      --glow-primary: 0 0 24px rgba(168, 85, 247, 0.35);
+      --text-inverse: #130325;
+    }
 
-.btn {
-  display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 10px 18px; border-radius: 6px; font-family: var(--font-mono); font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; border: 1px solid var(--panel-border); background: rgba(8, 17, 30, 0.8); color: var(--text-main); cursor: pointer; transition: var(--transition);
-}
-.btn:hover { transform: translateY(-2px); border-color: var(--neon-cyan); box-shadow: var(--glow-cyan); color: #fff; }
-.btn.btn-primary { background: var(--neon-cyan); color: #02120b; border-color: var(--neon-cyan); font-weight: 700; box-shadow: 0 0 20px rgba(0, 245, 160, 0.35); }
-.btn.btn-primary:hover { background: #2affb5; transform: translateY(-2px); box-shadow: 0 0 30px rgba(0, 245, 160, 0.55); }
-.btn.btn-secondary { background: rgba(0, 210, 255, 0.08); border-color: rgba(0, 210, 255, 0.3); color: var(--neon-blue); }
-.btn.btn-secondary:hover { border-color: var(--neon-blue); box-shadow: var(--glow-blue); }
-.btn.btn-sm { padding: 6px 12px; font-size: 0.7rem; }
+    [data-theme="ice"] {
+      --primary: #38bdf8;
+      --secondary: #818cf8;
+      --border-accent: rgba(56, 189, 248, 0.25);
+      --border-glow: rgba(56, 189, 248, 0.5);
+      --glow-primary: 0 0 24px rgba(56, 189, 248, 0.35);
+      --text-inverse: #02131e;
+    }
 
-.badge { display: inline-flex; align-items: center; gap: 5px; padding: 3px 8px; border-radius: 4px; font-family: var(--font-mono); font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; background: rgba(255, 255, 255, 0.04); border: 1px solid var(--panel-border); color: var(--text-muted); }
-.badge.badge-cyan { background: rgba(0, 245, 160, 0.1); border-color: rgba(0, 245, 160, 0.3); color: var(--neon-cyan); }
-.badge.badge-blue { background: rgba(0, 210, 255, 0.1); border-color: rgba(0, 210, 255, 0.3); color: var(--neon-blue); }
-.badge.badge-amber { background: rgba(245, 158, 11, 0.1); border-color: rgba(245, 158, 11, 0.3); color: var(--neon-amber); }
-.badge.badge-purple { background: rgba(157, 78, 221, 0.1); border-color: rgba(157, 78, 221, 0.3); color: var(--neon-purple); }
+    /* Core Resets */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      line-height: 1.65;
+      overflow-x: hidden;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      position: relative;
+    }
 
-.hero { min-height: calc(100vh - 110px); display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 50px; align-items: center; padding: 60px 0 80px; position: relative; }
-.hero::after { content: "DEF_OPS // 01"; position: absolute; right: -20px; top: 10px; font-family: var(--font-mono); font-weight: 900; font-size: clamp(3rem, 11vw, 9.5rem); color: rgba(0, 245, 160, 0.035); letter-spacing: -0.06em; pointer-events: none; z-index: -1; }
-.status-pill { display: inline-flex; align-items: center; gap: 10px; background: rgba(0, 245, 160, 0.06); border: 1px solid rgba(0, 245, 160, 0.25); padding: 6px 14px; border-radius: 999px; font-family: var(--font-mono); font-size: 0.74rem; color: var(--neon-cyan); margin-bottom: 24px; }
-.status-pill i { width: 8px; height: 8px; border-radius: 50%; background: var(--neon-cyan); box-shadow: 0 0 10px var(--neon-cyan); animation: pulse-dot 1.8s infinite; }
-.hero h1 { font-family: var(--font-display); font-size: clamp(3.2rem, 6.4vw, 5.8rem); font-weight: 800; line-height: 0.94; letter-spacing: -0.05em; margin-bottom: 24px; }
-.hero h1 .text-gradient { background: linear-gradient(135deg, #ffffff 20%, var(--neon-cyan) 60%, var(--neon-blue) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-.hero-bio { font-size: 1.05rem; color: var(--text-muted); max-width: 620px; margin-bottom: 32px; line-height: 1.7; }
-.hero-bio strong { color: var(--text-main); font-weight: 600; }
-.hero-cta { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 42px; }
-.metrics-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, 0.08); }
-.metric-box { border-left: 2px solid var(--neon-cyan); padding-left: 10px; }
-.metric-box .metric-val { font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; color: var(--text-main); line-height: 1.1; }
-.metric-box .metric-label { font-family: var(--font-mono); font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em; margin-top: 2px; }
+    /* Background Ambient Canvas & Grid */
+    #cyber-canvas {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      opacity: 0.6;
+    }
+    .ambient-grid {
+      position: fixed;
+      inset: 0;
+      z-index: -3;
+      pointer-events: none;
+      background-image: 
+        linear-gradient(var(--border-subtle) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border-subtle) 1px, transparent 1px);
+      background-size: 50px 50px;
+      mask-image: radial-gradient(circle at 50% 25%, black 40%, transparent 85%);
+      -webkit-mask-image: radial-gradient(circle at 50% 25%, black 40%, transparent 85%);
+    }
+    .ambient-radial {
+      position: fixed;
+      inset: 0;
+      z-index: -4;
+      pointer-events: none;
+      background: 
+        radial-gradient(circle at 18% 18%, rgba(0, 245, 160, 0.08), transparent 45%),
+        radial-gradient(circle at 82% 40%, rgba(0, 210, 255, 0.07), transparent 45%),
+        radial-gradient(circle at 50% 88%, rgba(139, 92, 246, 0.06), transparent 50%);
+    }
 
-.terminal-window { background: rgba(5, 12, 22, 0.92); border: 1px solid var(--panel-border-glow); border-radius: 12px; overflow: hidden; box-shadow: 0 25px 70px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1); position: relative; }
-.terminal-header { background: rgba(8, 18, 32, 0.95); border-bottom: 1px solid var(--panel-border); padding: 10px 16px; display: flex; align-items: center; justify-content: space-between; }
-.terminal-dots { display: flex; gap: 6px; }
-.terminal-dots span { width: 9px; height: 9px; border-radius: 50%; background: #3a4d63; }
-.terminal-dots span:nth-child(1) { background: #ff5f56; }
-.terminal-dots span:nth-child(2) { background: #ffbd2e; }
-.terminal-dots span:nth-child(3) { background: #27c93f; }
-.terminal-title { font-family: var(--font-mono); font-size: 0.68rem; color: var(--neon-cyan); letter-spacing: 0.08em; display: flex; align-items: center; gap: 6px; }
-.terminal-body { height: 380px; overflow-y: auto; padding: 18px; font-family: var(--font-mono); font-size: 0.78rem; color: #c9d8e8; line-height: 1.7; scroll-behavior: smooth; }
-.term-prompt { color: var(--neon-blue); }
-.term-user { color: var(--neon-cyan); }
-.term-cmd { color: #ffffff; font-weight: 600; }
-.term-res { color: #8ea6be; margin-bottom: 12px; }
-.term-green { color: var(--neon-cyan); }
-.term-amber { color: var(--neon-amber); }
-.term-red { color: var(--neon-red); }
-.term-input-line { display: flex; align-items: center; gap: 8px; margin-top: 10px; }
-.term-input { background: transparent; border: none; outline: none; font-family: var(--font-mono); font-size: 0.78rem; color: #ffffff; flex: 1; }
-.term-quick-btns { padding: 8px 14px; background: rgba(3, 8, 16, 0.85); border-top: 1px solid rgba(255, 255, 255, 0.05); display: flex; gap: 6px; flex-wrap: wrap; }
-.term-quick-btn { background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.1); color: var(--text-muted); font-family: var(--font-mono); font-size: 0.65rem; padding: 3px 8px; border-radius: 3px; cursor: pointer; transition: var(--transition); }
-.term-quick-btn:hover { border-color: var(--neon-cyan); color: var(--neon-cyan); }
+    /* Common Layout & Helpers */
+    .container {
+      width: min(var(--max-w), 92%);
+      margin: 0 auto;
+    }
+    a { color: inherit; text-decoration: none; transition: var(--transition); }
+    code, pre { font-family: var(--font-mono); }
+    .section-padding { padding: 100px 0; border-top: 1px solid var(--border-subtle); position: relative; }
+    
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      color: var(--primary);
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .eyebrow::before { content: "::"; color: var(--secondary); }
 
-.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-.glass-card { background: var(--bg-card); border: 1px solid var(--panel-border); border-radius: 10px; padding: 24px; transition: var(--transition); position: relative; backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); display: flex; flex-direction: column; }
-.glass-card:hover { background: var(--bg-card-hover); border-color: var(--panel-border-glow); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), var(--glow-cyan); }
-.card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 12px; }
-.card-icon { width: 40px; height: 40px; border-radius: 8px; background: rgba(0, 245, 160, 0.08); border: 1px solid rgba(0, 245, 160, 0.2); display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); color: var(--neon-cyan); font-size: 1.1rem; }
-.tags-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
-.tag-item { font-family: var(--font-mono); font-size: 0.68rem; padding: 3px 8px; border-radius: 4px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); color: #b5cbe0; }
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+    .section-head h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2.1rem, 4vw, 3.4rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+    }
+    .section-head p {
+      color: var(--text-secondary);
+      max-width: 520px;
+      font-size: 0.95rem;
+    }
 
-.about-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: start; }
-.about-text p { color: var(--text-muted); font-size: 1.02rem; margin-bottom: 18px; }
-.about-text strong { color: var(--text-main); }
-.public-profiles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 24px; }
-.profile-card { padding: 16px; border-radius: 8px; background: rgba(8, 17, 30, 0.7); border: 1px solid var(--panel-border); transition: var(--transition); display: block; }
-.profile-card:hover { border-color: var(--neon-cyan); transform: translateY(-3px); box-shadow: var(--glow-cyan); }
-.profile-card h4 { font-size: 1.05rem; margin: 6px 0 2px; color: var(--text-main); display: flex; align-items: center; justify-content: space-between; }
-.profile-card p { font-size: 0.75rem; color: var(--text-muted); }
+    /* ==========================================================================
+       TACTICAL TOP HUD STRIP
+       ========================================================================== */
+    .hud-strip {
+      background: rgba(6, 9, 14, 0.95);
+      border-bottom: 1px solid var(--border-subtle);
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-secondary);
+      padding: 7px 0;
+      position: sticky;
+      top: 0;
+      z-index: 60;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .hud-strip .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .hud-left, .hud-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .hud-beacon {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+    .hud-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--primary);
+      box-shadow: 0 0 10px var(--primary);
+      animation: pulse-beacon 2s infinite ease-in-out;
+    }
+    @keyframes pulse-beacon {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(0.8); opacity: 0.4; }
+    }
+    .theme-pills {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 2px 6px;
+      border-radius: 999px;
+      border: 1px solid var(--border-subtle);
+    }
+    .theme-pill {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 1px solid rgba(255,255,255,0.2);
+      transition: transform 0.2s;
+    }
+    .theme-pill:hover { transform: scale(1.2); }
+    .theme-pill.emerald { background: #00f5a0; }
+    .theme-pill.violet { background: #a855f7; }
+    .theme-pill.ice { background: #38bdf8; }
 
-.soc-lab-container { background: rgba(5, 12, 22, 0.85); border: 1px solid var(--panel-border-glow); border-radius: 12px; padding: 36px; position: relative; overflow: hidden; box-shadow: inset 0 0 60px rgba(0, 245, 160, 0.03); }
-.pipeline-diagram { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr; gap: 12px; align-items: center; margin: 28px 0; }
-.pipeline-node { background: rgba(9, 21, 38, 0.9); border: 1px solid var(--panel-border); border-radius: 8px; padding: 20px 14px; text-align: center; font-family: var(--font-mono); position: relative; transition: var(--transition); cursor: pointer; }
-.pipeline-node:hover, .pipeline-node.active-node { border-color: var(--neon-cyan); box-shadow: var(--glow-cyan); transform: scale(1.03); }
-.pipeline-node h5 { font-size: 0.88rem; color: #ffffff; margin-bottom: 4px; }
-.pipeline-node small { font-size: 0.68rem; color: var(--text-muted); display: block; }
-.pipeline-node .node-badge { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--neon-cyan); box-shadow: 0 0 8px var(--neon-cyan); margin-top: 8px; }
-.pipeline-arrow { color: var(--neon-cyan); font-size: 1.2rem; font-family: var(--font-mono); display: flex; align-items: center; justify-content: center; animation: pulse-arrow 2s infinite ease-in-out; }
-@keyframes pulse-arrow { 0%, 100% { opacity: 0.4; transform: translateX(-2px); } 50% { opacity: 1; transform: translateX(3px); } }
-.soc-flow-steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-top: 24px; }
-.soc-flow-box { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 6px; padding: 14px; font-size: 0.78rem; color: var(--text-muted); }
-.soc-flow-box b { display: block; font-family: var(--font-mono); font-size: 0.7rem; color: var(--neon-cyan); margin-bottom: 4px; }
+    .hud-btn {
+      background: transparent;
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      padding: 3px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition);
+    }
+    .hud-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
 
-.filter-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 30px; }
-.filter-tab { background: rgba(255, 255, 255, 0.03); border: 1px solid var(--panel-border); color: var(--text-muted); font-family: var(--font-mono); font-size: 0.72rem; padding: 6px 14px; border-radius: 6px; cursor: pointer; transition: var(--transition); }
-.filter-tab:hover, .filter-tab.active { background: rgba(0, 245, 160, 0.12); border-color: var(--neon-cyan); color: var(--neon-cyan); }
-.project-card { display: flex; flex-direction: column; height: 100%; }
-.project-card h3 { font-family: var(--font-display); font-size: 1.25rem; margin: 6px 0 10px; }
-.project-card p { color: var(--text-muted); font-size: 0.88rem; margin-bottom: 16px; flex-grow: 1; }
-.mitre-badge { font-family: var(--font-mono); font-size: 0.65rem; padding: 2px 6px; border-radius: 3px; background: rgba(157, 78, 221, 0.12); border: 1px solid rgba(157, 78, 221, 0.3); color: #c77dff; display: inline-flex; align-items: center; gap: 4px; }
-.project-actions { display: flex; align-items: center; justify-content: space-between; margin-top: 20px; padding-top: 16px; border-top: 1px solid rgba(255, 255, 255, 0.06); }
-.project-actions a { font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; color: var(--neon-cyan); display: inline-flex; align-items: center; gap: 5px; }
+    /* ==========================================================================
+       MAIN NAVIGATION
+       ========================================================================== */
+    nav {
+      position: sticky;
+      top: 35px;
+      z-index: 50;
+      background: rgba(8, 13, 22, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .nav-wrap {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: var(--font-mono);
+      font-weight: 800;
+      font-size: 1.1rem;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .nav-logo .badge-tag {
+      font-size: 0.65rem;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: rgba(0, 245, 160, 0.1);
+      border: 1px solid var(--border-accent);
+      color: var(--primary);
+      letter-spacing: 0.08em;
+    }
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      list-style: none;
+    }
+    .nav-menu a {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      position: relative;
+      padding: 8px 0;
+    }
+    .nav-menu a:hover {
+      color: var(--primary);
+    }
+    .nav-menu a::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: var(--primary);
+      box-shadow: 0 0 10px var(--primary);
+      transition: width 0.25s ease;
+    }
+    .nav-menu a:hover::after { width: 100%; }
 
-.timeline-container { display: flex; flex-direction: column; gap: 16px; }
-.timeline-item { position: relative; padding-left: 32px; }
-.timeline-item::before { content: ""; position: absolute; left: 8px; top: 28px; width: 9px; height: 9px; border-radius: 50%; background: var(--neon-cyan); box-shadow: 0 0 12px var(--neon-cyan); }
-.timeline-item::after { content: ""; position: absolute; left: 12px; top: 42px; bottom: -22px; width: 1px; background: rgba(0, 245, 160, 0.15); }
-.timeline-item:last-child::after { display: none; }
-.timeline-item h3 { font-size: 1.15rem; margin: 4px 0 2px; }
-.timeline-item .company-name { color: var(--neon-blue); font-family: var(--font-mono); font-size: 0.8rem; margin-bottom: 10px; }
-.timeline-item ul { list-style: none; margin-top: 8px; }
-.timeline-item ul li { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 6px; position: relative; padding-left: 16px; }
-.timeline-item ul li::before { content: "▹"; position: absolute; left: 0; color: var(--neon-cyan); }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .cmd-k-trigger {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .cmd-k-trigger:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+    .cmd-k-key {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 1px 5px;
+      border-radius: 3px;
+      font-size: 0.65rem;
+    }
+    .mobile-menu-btn {
+      display: none;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      cursor: pointer;
+    }
 
-.team-grid { display: grid; grid-template-columns: 1fr 0.8fr; gap: 20px; }
-.team-hero-card { display: flex; flex-direction: column; justify-content: space-between; }
-.team-title { font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4.2rem); line-height: 0.95; font-weight: 800; letter-spacing: -0.05em; margin: 16px 0; }
-.team-title span { color: var(--neon-cyan); text-shadow: var(--glow-cyan); }
-.ctf-podiums { display: flex; flex-direction: column; gap: 12px; }
-.podium-item { display: flex; align-items: center; gap: 16px; padding: 14px 18px; border-radius: 8px; background: rgba(255, 255, 255, 0.025); border: 1px solid var(--panel-border); }
-.podium-rank { font-family: var(--font-display); font-size: 1.8rem; font-weight: 800; color: var(--neon-cyan); min-width: 44px; }
-.podium-item.gold .podium-rank { color: #ffd166; text-shadow: 0 0 15px rgba(255, 209, 102, 0.4); }
-.podium-item.bronze .podium-rank { color: #ff9f1c; }
-.podium-info h4 { font-size: 0.95rem; margin-bottom: 2px; }
-.podium-info p { font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono); }
+    /* ==========================================================================
+       BUTTONS & BADGES
+       ========================================================================== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 20px;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      border: 1px solid var(--border-accent);
+      background: var(--bg-card);
+      color: var(--text-primary);
+      cursor: pointer;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+      border-color: var(--primary);
+      box-shadow: var(--glow-primary);
+      color: #fff;
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: var(--text-inverse);
+      border-color: var(--primary);
+      box-shadow: var(--glow-primary);
+    }
+    .btn-primary:hover {
+      background: #3affc1;
+      color: var(--text-inverse);
+      box-shadow: 0 0 35px var(--primary);
+    }
+    .btn-secondary {
+      background: rgba(0, 210, 255, 0.08);
+      border-color: rgba(0, 210, 255, 0.3);
+      color: var(--secondary);
+    }
+    .btn-secondary:hover {
+      border-color: var(--secondary);
+      box-shadow: var(--glow-secondary);
+    }
+    .btn-sm {
+      padding: 7px 14px;
+      font-size: 0.72rem;
+    }
 
-.cert-card { display: flex; flex-direction: column; justify-content: space-between; min-height: 220px; }
-.cert-card h3 { font-size: 1.05rem; margin: 8px 0 4px; }
-.cert-card .issuer { font-family: var(--font-mono); font-size: 0.76rem; color: var(--text-muted); margin-bottom: 12px; }
-.cert-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; padding-top: 14px; border-top: 1px solid rgba(255, 255, 255, 0.05); }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+    }
+    .badge-primary { background: rgba(0, 245, 160, 0.1); border-color: var(--border-accent); color: var(--primary); }
+    .badge-cyan { background: rgba(0, 210, 255, 0.1); border-color: rgba(0, 210, 255, 0.3); color: var(--secondary); }
+    .badge-violet { background: rgba(139, 92, 246, 0.1); border-color: rgba(139, 92, 246, 0.3); color: var(--violet); }
+    .badge-amber { background: rgba(245, 158, 11, 0.1); border-color: rgba(245, 158, 11, 0.3); color: var(--amber); }
 
-.contact-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; }
-.contact-info h2 { font-family: var(--font-display); font-size: clamp(2.2rem, 4vw, 3.4rem); font-weight: 800; line-height: 1.05; margin-bottom: 16px; }
-.contact-links-list { display: grid; gap: 12px; }
-.contact-item-link { display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; border-radius: 8px; background: var(--bg-card); border: 1px solid var(--panel-border); transition: var(--transition); }
-.contact-item-link:hover { border-color: var(--neon-cyan); transform: translateX(4px); box-shadow: var(--glow-cyan); }
-.contact-item-link small { display: block; font-family: var(--font-mono); font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase; }
-.contact-item-link span.val { font-family: var(--font-mono); font-size: 0.88rem; color: var(--text-main); }
+    /* ==========================================================================
+       SPOTLIGHT BENTO CARD ARCHITECTURE
+       ========================================================================== */
+    .bento-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 26px;
+      position: relative;
+      overflow: hidden;
+      transition: var(--transition);
+      box-shadow: var(--glow-card);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      display: flex;
+      flex-direction: column;
+    }
+    .bento-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: radial-gradient(350px circle at var(--mouse-x, 0) var(--mouse-y, 0), rgba(0, 245, 160, 0.12), transparent 45%);
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+    }
+    .bento-card:hover {
+      border-color: var(--border-glow);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.7), var(--glow-primary);
+    }
+    .bento-card:hover::before { opacity: 1; }
 
-#toast { position: fixed; bottom: 24px; right: 24px; background: #00f5a0; color: #02120b; font-family: var(--font-mono); font-size: 0.78rem; font-weight: 700; padding: 10px 18px; border-radius: 6px; box-shadow: 0 10px 30px rgba(0, 245, 160, 0.4); transform: translateY(100px); opacity: 0; transition: var(--transition); z-index: 100; }
-#toast.show { transform: translateY(0); opacity: 1; }
+    .card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .card-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: rgba(0, 245, 160, 0.08);
+      border: 1px solid var(--border-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      color: var(--primary);
+    }
 
-footer { border-top: 1px solid var(--panel-border); padding: 30px 0; font-family: var(--font-mono); font-size: 0.74rem; color: var(--text-muted); background: rgba(3, 7, 18, 0.95); }
-.footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    /* Grids */
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
 
-.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
-.reveal.show { opacity: 1; transform: translateY(0); }
+    /* ==========================================================================
+       HERO SECTION WITH DUAL COMMAND CENTER
+       ========================================================================== */
+    .hero-section {
+      min-height: calc(100vh - 110px);
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 60px;
+      align-items: center;
+      padding: 70px 0 90px;
+      position: relative;
+    }
+    .hero-section::after {
+      content: "SOC // 01";
+      position: absolute;
+      right: -20px;
+      top: 15px;
+      font-family: var(--font-mono);
+      font-weight: 900;
+      font-size: clamp(3rem, 11vw, 9.5rem);
+      color: rgba(255, 255, 255, 0.015);
+      letter-spacing: -0.06em;
+      pointer-events: none;
+      z-index: -1;
+    }
 
-@media (max-width: 980px) {
-  .hero, .about-grid, .team-grid, .contact-grid { grid-template-columns: 1fr; }
-  .grid-3 { grid-template-columns: repeat(2, 1fr); }
-  .pipeline-diagram { grid-template-columns: 1fr; gap: 8px; }
-  .pipeline-arrow { transform: rotate(90deg); margin: 6px 0; }
-  .soc-flow-steps { grid-template-columns: repeat(2, 1fr); }
-  .metrics-strip { grid-template-columns: repeat(2, 1fr); }
-  .nav-links { display: none; position: absolute; top: 72px; left: 0; right: 0; background: rgba(5, 12, 22, 0.98); flex-direction: column; padding: 24px; border-bottom: 1px solid var(--panel-border); gap: 16px; }
-  .nav-links.open { display: flex; }
-  .menu-btn { display: block; }
-}
-@media (max-width: 640px) {
-  .grid-2, .grid-3, .public-profiles-grid { grid-template-columns: 1fr; }
-  .soc-flow-steps { grid-template-columns: 1fr; }
-  .hero h1 { font-size: 2.8rem; }
-  .section-head { flex-direction: column; align-items: flex-start; }
-}
-</style>
+    .hero-status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(0, 245, 160, 0.06);
+      border: 1px solid var(--border-accent);
+      padding: 7px 16px;
+      border-radius: 999px;
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      color: var(--primary);
+      margin-bottom: 24px;
+    }
+    .hero-status-pill .radar-ping {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--primary);
+      box-shadow: 0 0 12px var(--primary);
+      animation: pulse-beacon 1.8s infinite;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(3.2rem, 6.2vw, 5.8rem);
+      font-weight: 800;
+      line-height: 0.94;
+      letter-spacing: -0.05em;
+      margin-bottom: 24px;
+    }
+    .text-gradient {
+      background: linear-gradient(135deg, #ffffff 15%, var(--primary) 65%, var(--secondary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-role-wrapper {
+      font-family: var(--font-mono);
+      font-size: 1.05rem;
+      color: var(--secondary);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .hero-role-wrapper .cursor {
+      display: inline-block;
+      width: 2px;
+      height: 1.1em;
+      background: var(--primary);
+      animation: blink 1s infinite;
+    }
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      max-width: 620px;
+      margin-bottom: 34px;
+      line-height: 1.7;
+    }
+    .hero-desc strong { color: var(--text-primary); font-weight: 600; }
+
+    .hero-cta {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 44px;
+    }
+
+    /* Hero Quick Metrics Bento */
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border-subtle);
+    }
+    .metric-item {
+      border-left: 2px solid var(--primary);
+      padding-left: 12px;
+    }
+    .metric-value {
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      line-height: 1.1;
+    }
+    .metric-label {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-top: 4px;
+    }
+
+    /* Tactical Terminal Component */
+    .terminal-container {
+      background: rgba(4, 9, 16, 0.95);
+      border: 1px solid var(--border-accent);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      position: relative;
+    }
+    .terminal-topbar {
+      background: rgba(7, 13, 22, 0.98);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .terminal-dots { display: flex; gap: 7px; }
+    .terminal-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .dot-red { background: #ff5f56; }
+    .dot-yellow { background: #ffbd2e; }
+    .dot-green { background: #27c93f; }
+    .terminal-title {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--primary);
+      letter-spacing: 0.08em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .terminal-screen {
+      height: 380px;
+      overflow-y: auto;
+      padding: 20px;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: #cbd5e1;
+      line-height: 1.7;
+    }
+    .terminal-screen::-webkit-scrollbar { width: 5px; }
+    .terminal-screen::-webkit-scrollbar-thumb { background: rgba(0, 245, 160, 0.2); border-radius: 4px; }
+    
+    .term-prompt { color: var(--secondary); }
+    .term-user { color: var(--primary); }
+    .term-cmd { color: #fff; font-weight: 600; }
+    .term-res { color: var(--text-secondary); margin-bottom: 14px; }
+    .term-green { color: var(--primary); }
+    .term-amber { color: var(--amber); }
+    .term-red { color: var(--danger); }
+
+    .term-input-box {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .term-input-field {
+      background: transparent;
+      border: none;
+      outline: none;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: #fff;
+      flex: 1;
+    }
+    .terminal-pills {
+      padding: 10px 18px;
+      background: rgba(3, 7, 14, 0.9);
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .term-pill {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      padding: 4px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .term-pill:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      background: rgba(0, 245, 160, 0.08);
+    }
+
+    /* ==========================================================================
+       INTERACTIVE SOC LAB BLUEPRINT & NODE INSPECTOR
+       ========================================================================== */
+    .blueprint-container {
+      background: rgba(5, 10, 18, 0.9);
+      border: 1px solid var(--border-accent);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: inset 0 0 80px rgba(0, 245, 160, 0.02);
+    }
+    .blueprint-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 30px;
+    }
+    .pipeline-grid {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 28px;
+    }
+    .pipeline-card {
+      background: rgba(8, 15, 27, 0.85);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 20px 16px;
+      text-align: center;
+      font-family: var(--font-mono);
+      cursor: pointer;
+      transition: var(--transition);
+      position: relative;
+    }
+    .pipeline-card:hover, .pipeline-card.active {
+      border-color: var(--primary);
+      box-shadow: var(--glow-primary);
+      transform: translateY(-3px);
+      background: rgba(11, 22, 38, 0.95);
+    }
+    .pipeline-card h4 {
+      font-size: 0.95rem;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .pipeline-card small {
+      font-size: 0.7rem;
+      color: var(--text-secondary);
+      display: block;
+    }
+    .pipeline-card .node-state {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      margin-top: 10px;
+    }
+
+    .pipeline-arrow {
+      color: var(--primary);
+      font-family: var(--font-mono);
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: pulse-arrow 2s infinite ease-in-out;
+    }
+    @keyframes pulse-arrow {
+      0%, 100% { opacity: 0.35; transform: translateX(-3px); }
+      50% { opacity: 1; transform: translateX(3px); }
+    }
+
+    .inspector-panel {
+      background: rgba(9, 16, 28, 0.7);
+      border: 1px solid var(--border-accent);
+      border-radius: var(--radius-sm);
+      padding: 22px;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 20px;
+      align-items: center;
+    }
+    .inspector-title { color: var(--primary); font-size: 0.95rem; font-weight: 700; margin-bottom: 4px; }
+    .inspector-specs { list-style: none; display: grid; gap: 6px; color: var(--text-secondary); }
+    .inspector-specs b { color: #fff; }
+
+    /* ==========================================================================
+       MITRE ATT&CK & PROJECTS FILTER TABS
+       ========================================================================== */
+    .filter-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 36px;
+    }
+    .filter-label {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .filter-tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      padding: 7px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: rgba(0, 245, 160, 0.12);
+      border-color: var(--primary);
+      color: var(--primary);
+      box-shadow: 0 0 15px rgba(0, 245, 160, 0.2);
+    }
+
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .project-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin: 8px 0 12px;
+      letter-spacing: -0.02em;
+    }
+    .project-card p {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+      flex-grow: 1;
+      line-height: 1.65;
+    }
+
+    .mitre-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+    .mitre-badge {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: rgba(139, 92, 246, 0.12);
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      color: #c4b5fd;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .stack-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 22px;
+    }
+    .stack-tag {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      color: #cbd5e1;
+    }
+
+    .project-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-subtle);
+    }
+    .project-link {
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--primary);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .project-link:hover { text-shadow: var(--glow-primary); }
+
+    /* ==========================================================================
+       MODAL DIALOGS (COMMAND PALETTE & PROJECT DETAILS)
+       ========================================================================== */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(3, 6, 12, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: var(--transition);
+      padding: 20px;
+    }
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .modal-box {
+      background: rgba(9, 15, 25, 0.98);
+      border: 1px solid var(--border-accent);
+      border-radius: var(--radius-md);
+      width: min(680px, 100%);
+      max-height: 85vh;
+      overflow-y: auto;
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.8), var(--glow-primary);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+    .modal-box-head {
+      padding: 18px 24px;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .modal-close {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.2rem;
+      cursor: pointer;
+      font-family: var(--font-mono);
+    }
+    .modal-close:hover { color: var(--primary); }
+    .modal-box-body { padding: 24px; }
+
+    /* Command Palette Specific */
+    .palette-input {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 14px 18px;
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      color: #fff;
+      outline: none;
+      margin-bottom: 18px;
+    }
+    .palette-input:focus { border-color: var(--primary); box-shadow: 0 0 15px rgba(0, 245, 160, 0.2); }
+    .palette-list { list-style: none; display: grid; gap: 6px; }
+    .palette-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 16px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid transparent;
+      cursor: pointer;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+    }
+    .palette-item:hover, .palette-item.active {
+      background: rgba(0, 245, 160, 0.08);
+      border-color: var(--border-accent);
+      color: var(--primary);
+    }
+
+    /* ==========================================================================
+       EXPERIENCE TIMELINE
+       ========================================================================== */
+    .timeline-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .timeline-node {
+      position: relative;
+      padding-left: 36px;
+    }
+    .timeline-node::before {
+      content: "";
+      position: absolute;
+      left: 10px;
+      top: 30px;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--primary);
+      box-shadow: 0 0 12px var(--primary);
+    }
+    .timeline-node::after {
+      content: "";
+      position: absolute;
+      left: 14px;
+      top: 45px;
+      bottom: -22px;
+      width: 1px;
+      background: rgba(0, 245, 160, 0.15);
+    }
+    .timeline-node:last-child::after { display: none; }
+    .timeline-node h3 { font-size: 1.2rem; margin: 6px 0 2px; }
+    .timeline-company {
+      color: var(--secondary);
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      margin-bottom: 12px;
+    }
+    .timeline-node ul { list-style: none; display: grid; gap: 8px; }
+    .timeline-node ul li {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      position: relative;
+      padding-left: 20px;
+      line-height: 1.6;
+    }
+    .timeline-node ul li::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+    }
+
+    /* ==========================================================================
+       TEAM T3AM KNULL & CTF PODIUMS
+       ========================================================================== */
+    .team-showcase {
+      display: grid;
+      grid-template-columns: 1fr 0.85fr;
+      gap: 24px;
+    }
+    .team-hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 5.5vw, 4.4rem);
+      line-height: 0.92;
+      font-weight: 800;
+      letter-spacing: -0.05em;
+      margin: 18px 0;
+    }
+    .team-hero-title span { color: var(--primary); text-shadow: var(--glow-primary); }
+
+    .podium-list { display: flex; flex-direction: column; gap: 14px; }
+    .podium-card {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 16px 20px;
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-subtle);
+    }
+    .podium-rank {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 800;
+      min-width: 50px;
+      color: var(--primary);
+    }
+    .podium-card.gold .podium-rank { color: #facc15; text-shadow: 0 0 16px rgba(250, 204, 21, 0.4); }
+    .podium-card.bronze .podium-rank { color: #fb923c; }
+
+    /* ==========================================================================
+       CERTIFICATIONS & PROOF OF CONTINUOUS LEARNING
+       ========================================================================== */
+    .cert-card {
+      min-height: 230px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .cert-card h3 {
+      font-size: 1.15rem;
+      margin: 8px 0 4px;
+    }
+    .cert-issuer {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+    }
+    .cert-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: auto;
+      padding-top: 14px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    /* ==========================================================================
+       CONTACT TRANSMISSION HUB
+       ========================================================================== */
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 50px;
+    }
+    .contact-card-list { display: grid; gap: 12px; }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 22px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      transition: var(--transition);
+    }
+    .contact-item:hover {
+      border-color: var(--primary);
+      transform: translateX(4px);
+      box-shadow: var(--glow-primary);
+    }
+    .contact-item small {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .contact-item .contact-val {
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      color: #fff;
+    }
+
+    /* Toast Notification */
+    #toast {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: var(--primary);
+      color: var(--text-inverse);
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 12px 22px;
+      border-radius: 6px;
+      box-shadow: 0 10px 30px rgba(0, 245, 160, 0.45);
+      transform: translateY(100px);
+      opacity: 0;
+      transition: var(--transition);
+      z-index: 120;
+    }
+    #toast.show { transform: translateY(0); opacity: 1; }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: 36px 0;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      background: rgba(4, 8, 14, 0.95);
+    }
+    .footer-wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    /* Reveal Animations on Scroll */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.show { opacity: 1; transform: translateY(0); }
+
+    /* Responsive */
+    @media (max-width: 980px) {
+      .hero-section, .contact-wrap, .team-showcase { grid-template-columns: 1fr; }
+      .grid-3 { grid-template-columns: repeat(2, 1fr); }
+      .pipeline-grid { grid-template-columns: 1fr; gap: 10px; }
+      .pipeline-arrow { transform: rotate(90deg); margin: 6px 0; }
+      .inspector-panel { grid-template-columns: 1fr; }
+      .hero-metrics { grid-template-columns: repeat(2, 1fr); }
+      
+      .nav-menu {
+        display: none;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        background: rgba(6, 10, 18, 0.98);
+        flex-direction: column;
+        padding: 24px;
+        border-bottom: 1px solid var(--border-subtle);
+        gap: 18px;
+      }
+      .nav-menu.open { display: flex; }
+      .mobile-menu-btn { display: block; }
+    }
+    @media (max-width: 640px) {
+      .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+      .hero-title { font-size: 2.9rem; }
+      .section-head { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
 </head>
 <body>
 
-<canvas id="cyber-canvas"></canvas>
-<div class="ambient-grid"></div>
-<div class="ambient-glow"></div>
+  <!-- Cyber Constellation Background -->
+  <canvas id="cyber-canvas"></canvas>
+  <div class="ambient-grid"></div>
+  <div class="ambient-radial"></div>
 
-<aside class="top-command-strip">
-  <div class="container">
-    <div class="hud-item">
-      <span class="hud-indicator"></span>
-      <span>SECOPS COMMAND // ACTIVE DEFENSE</span>
-    </div>
-    <div class="hud-item">
-      <span>DEFCON: <strong style="color:var(--neon-cyan)">4 [GUARDED]</strong></span>
-      <span style="margin:0 8px;opacity:0.3">|</span>
-      <span>TIME: <span id="liveClock" style="color:var(--text-main)">--:--:-- UTC</span></span>
-    </div>
-    <div class="hud-item">
-      <button class="sound-toggle-btn" id="audioToggle" title="Toggle Tactical Audio Feedback">
-        🔊 AUDIO: <span id="audioStatus">ON</span>
-      </button>
-    </div>
-  </div>
-</aside>
-
-<nav>
-  <div class="container nav-wrapper">
-    <a class="logo" href="#home">
-      Sabareeshwari S
-      <span class="callsign">SOC // BLUE TEAM</span>
-    </a>
-    <button class="menu-btn" id="menuToggle" aria-label="Toggle Menu">TERMINAL MENU</button>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills & Tools</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#soc">SOC Lab</a></li>
-      <li><a href="#team">T3AM KNULL</a></li>
-      <li><a href="#certifications">Certifications</a></li>
-      <li><a href="#achievements">Achievements</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </div>
-</nav>
-
-<main>
-  <!-- HERO SECTION -->
-  <section id="home">
-    <div class="container hero">
-      <div class="hero-content reveal">
-        <div class="status-pill">
-          <i></i> Open to SOC Analyst & Cybersecurity Engineering Roles
-        </div>
-        <div class="eyebrow">CYBER COMMAND CENTER // DETECTION ENGINEERING</div>
-        <h1>
-          Defend.<br>
-          <span class="text-gradient">Detect.</span><br>
-          Investigate.
-        </h1>
-        <p class="hero-bio">
-          I'm <strong>Sabareeshwari S</strong>, a Cybersecurity Engineering student specializing in <strong>Blue Team operations</strong>, SIEM telemetry (Wazuh, Splunk), MITRE ATT&CK adversary mapping, malware triage, and automated detection pipelines.
-        </p>
-
-        <div class="hero-cta">
-          <a class="btn btn-primary" href="#projects">Explore Security Projects</a>
-          <a class="btn btn-secondary" href="https://drive.google.com/file/d/1PQ5mNkb475Bc5xqjcoUQ0DLiybV2MzrJ/view?usp=sharing" target="_blank" rel="noopener">
-            View Resume ↗
-          </a>
-          <a class="btn" href="https://github.com/sabsec-h4x" target="_blank" rel="noopener">GitHub ↗</a>
-        </div>
-
-        <div class="metrics-strip">
-          <div class="metric-box">
-            <div class="metric-val">1st Place</div>
-            <div class="metric-label">CTF Quest Winner</div>
-          </div>
-          <div class="metric-box">
-            <div class="metric-val">UT Austin</div>
-            <div class="metric-label">Hall of Fame</div>
-          </div>
-          <div class="metric-box">
-            <div class="metric-val">5+</div>
-            <div class="metric-label">Defense Tools</div>
-          </div>
-          <div class="metric-box">
-            <div class="metric-val">100%</div>
-            <div class="metric-label">Hands-On Practice</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- INTERACTIVE TACTICAL TERMINAL -->
-      <div class="terminal-wrapper reveal">
-        <div class="terminal-window">
-          <div class="terminal-header">
-            <div class="terminal-dots"><span></span><span></span><span></span></div>
-            <div class="terminal-title"><span style="color:var(--neon-cyan)">●</span> sabari@soc-node-01:~ (bash)</div>
-            <div style="font-family:var(--font-mono);font-size:0.65rem;color:var(--text-muted)">ONLINE</div>
-          </div>
-
-          <div class="terminal-body" id="termBody">
-            <div><span class="term-prompt">sabari@soc</span>:<span class="term-user">~</span>$ whoami</div>
-            <div class="term-res term-green">Sabareeshwari S — Cybersecurity Engineer & SOC Analyst</div>
-
-            <div><span class="term-prompt">sabari@soc</span>:<span class="term-user">~</span>$ cat focus.txt</div>
-            <div class="term-res">
-              [+] SIEM Monitoring (Wazuh & Splunk)<br>
-              [+] Endpoint Telemetry & Sysmon Triage<br>
-              [+] MITRE ATT&CK Framework Mapping<br>
-              [+] DAST & Web Vulnerability Assessment<br>
-              [+] Python Security Automation & Tooling
-            </div>
-
-            <div><span class="term-prompt">sabari@soc</span>:<span class="term-user">~</span>$ systemctl status soc-lab.service</div>
-            <div class="term-res">
-              ● soc-lab.service - Enterprise SOC & Detection Lab<br>
-              &nbsp;&nbsp;Loaded: loaded (/etc/systemd/system/soc-lab.service)<br>
-              &nbsp;&nbsp;Active: <span class="term-green">active (running)</span> since 2026<br>
-              &nbsp;&nbsp;Status: "Simulating attacks & tuning detection rules"
-            </div>
-
-            <div id="termOutputHistory"></div>
-
-            <div class="term-input-line">
-              <span class="term-prompt">sabari@soc</span>:<span class="term-user">~</span>$&nbsp;
-              <input type="text" id="termInput" class="term-input" placeholder="Type 'help' or click pills below..." autocomplete="off" spellcheck="false">
-            </div>
-          </div>
-
-          <div class="term-quick-btns">
-            <button class="term-quick-btn" onclick="executeTerm('help')">help</button>
-            <button class="term-quick-btn" onclick="executeTerm('skills')">skills</button>
-            <button class="term-quick-btn" onclick="executeTerm('projects')">projects</button>
-            <button class="term-quick-btn" onclick="executeTerm('certs')">certs</button>
-            <button class="term-quick-btn" onclick="executeTerm('clear')">clear</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT SECTION -->
-  <section id="about" class="section-padding">
+  <!-- TACTICAL TOP HUD STRIP -->
+  <aside class="hud-strip">
     <div class="container">
-      <div class="section-head reveal">
-        <div>
-          <div class="eyebrow">01 // PROFILE & METHODOLOGY</div>
-          <h2>Security-minded by practice.</h2>
+      <div class="hud-left">
+        <div class="hud-beacon">
+          <span class="hud-dot"></span>
+          <span>SECOPS // ACTIVE DEFENSE OPERATIONS</span>
         </div>
-        <p>I learn cybersecurity through lab building, adversary simulation, telemetry analysis, and rigorous technical documentation.</p>
+        <span style="opacity:0.25">|</span>
+        <div>DEFCON: <strong style="color:var(--primary)">4 [GUARDED]</strong></div>
       </div>
+      <div class="hud-right">
+        <div>UTC: <span id="utcClock" style="color:#fff">--:--:--</span></div>
+        <span style="opacity:0.25">|</span>
+        <div class="theme-pills">
+          <span class="theme-pill emerald" onclick="setTheme('emerald')" title="Emerald Defense Theme"></span>
+          <span class="theme-pill violet" onclick="setTheme('violet')" title="Cyber Violet Theme"></span>
+          <span class="theme-pill ice" onclick="setTheme('ice')" title="Stealth Ice Theme"></span>
+        </div>
+        <button class="hud-btn" id="soundToggle" title="Toggle Tactical Audio Feedback">
+          🔊 AUDIO: <span id="soundStatus">ON</span>
+        </button>
+      </div>
+    </div>
+  </aside>
 
-      <div class="about-grid">
-        <div class="about-text reveal">
-          <p>
-            I am a <strong>Cybersecurity Engineering student</strong> specializing in <strong>Blue Team operations</strong>, with practical exposure across SIEM platforms (Wazuh, Splunk), Sysmon logging, packet-level traffic analysis, and alert triage workflows.
-          </p>
-          <p>
-            My work combines defensive monitoring with proactive testing — performing <strong>DAST</strong>, vulnerability assessments on live scopes, OSINT investigations, phishing analysis, and competing in high-stakes CTF tournaments with <strong>T3AM KNULL</strong>.
+  <!-- MAIN NAVIGATION -->
+  <nav>
+    <div class="container nav-wrap">
+      <a class="nav-logo" href="#home">
+        Sabareeshwari S
+        <span class="badge-tag">SOC / BLUE TEAM</span>
+      </a>
+      
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Menu">MENU ☰</button>
+
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills & Toolkit</a></li>
+        <li><a href="#soc-lab">SOC Lab</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#team">T3AM KNULL</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="cmd-k-trigger" onclick="openCommandPalette()">
+          <span>Command Palette</span>
+          <span class="cmd-k-key">⌘K</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section id="home">
+      <div class="container hero-section">
+        <div class="hero-left reveal">
+          <div class="hero-status-pill">
+            <span class="radar-ping"></span>
+            <span>Open to SOC Analyst & Cybersecurity Opportunities</span>
+          </div>
+
+          <div class="eyebrow">CYBER COMMAND CENTER // DETECTION ENGINEERING</div>
+          
+          <h1 class="hero-title">
+            Defend.<br>
+            <span class="text-gradient">Detect.</span><br>
+            Investigate.
+          </h1>
+
+          <div class="hero-role-wrapper">
+            <span>&gt; Focus: </span>
+            <span id="typewriterText">SOC Analyst & Threat Detection</span>
+            <span class="cursor"></span>
+          </div>
+
+          <p class="hero-desc">
+            I'm <strong>Sabareeshwari S</strong>, a Cybersecurity Engineering student specializing in <strong>Blue Team operations</strong>, SIEM telemetry (Wazuh, Splunk), Sysmon logging, MITRE ATT&CK adversary mapping, DAST testing, and automated threat detection engineering.
           </p>
 
-          <div class="public-profiles-grid">
-            <a class="profile-card" id="thmLink" href="https://tryhackme.com/p/sabarih4x" target="_blank" rel="noopener">
-              <div class="eyebrow" style="font-size:0.6rem">TRYHACKME</div>
-              <h4>sabarih4x ↗</h4>
-              <p>Continuous CTF practice & labs</p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#projects">Explore Security Projects</a>
+            <a class="btn btn-secondary" href="https://drive.google.com/file/d/1PQ5mNkb475Bc5xqjcoUQ0DLiybV2MzrJ/view?usp=sharing" target="_blank" rel="noopener">
+              View Verified Resume ↗
             </a>
-            <a class="profile-card" id="ldLink" href="https://app.letsdefend.io/user/Sabari19" target="_blank" rel="noopener">
-              <div class="eyebrow" style="font-size:0.6rem">LETSDEFEND</div>
-              <h4>Sabari19 ↗</h4>
-              <p>SOC analyst triage simulations</p>
-            </a>
-            <a class="profile-card" id="liLink" href="https://www.linkedin.com/in/sabareeshwari-selvarajan-75a985294/" target="_blank" rel="noopener">
-              <div class="eyebrow" style="font-size:0.6rem">LINKEDIN</div>
-              <h4>Connect ↗</h4>
-              <p>Professional network & updates</p>
+            <a class="btn" href="https://github.com/sabsec-h4x" target="_blank" rel="noopener">
+              GitHub Repositories ↗
             </a>
           </div>
-        </div>
 
-        <div class="grid-1 reveal" style="display:grid;gap:14px;">
-          <div class="glass-card">
-            <div class="card-top">
-              <div class="eyebrow">SPECIALTY 01</div>
-              <div class="badge badge-cyan">BLUE TEAM</div>
+          <div class="hero-metrics">
+            <div class="metric-item">
+              <div class="metric-value">1st Place</div>
+              <div class="metric-label">CTF Quest Champion</div>
             </div>
-            <h3>SOC & SIEM Telemetry</h3>
-            <p style="color:var(--text-muted);font-size:0.85rem">Real-time log ingestion, alert correlation, Sysmon event filtering, and incident containment strategies.</p>
-          </div>
-
-          <div class="glass-card">
-            <div class="card-top">
-              <div class="eyebrow">SPECIALTY 02</div>
-              <div class="badge badge-blue">OFFENSIVE / AUDIT</div>
+            <div class="metric-item">
+              <div class="metric-value">UT Austin</div>
+              <div class="metric-label">Security Hall of Fame</div>
             </div>
-            <h3>Vulnerability Analysis & DAST</h3>
-            <p style="color:var(--text-muted);font-size:0.85rem">Web security assessments, parameter tampering, credential exposure research, and responsible disclosure.</p>
-          </div>
-
-          <div class="glass-card">
-            <div class="card-top">
-              <div class="eyebrow">SPECIALTY 03</div>
-              <div class="badge badge-purple">AUTOMATION</div>
+            <div class="metric-item">
+              <div class="metric-value">5+</div>
+              <div class="metric-label">Defense Toolsets</div>
             </div>
-            <h3>Security Tooling & Python</h3>
-            <p style="color:var(--text-muted);font-size:0.85rem">Building custom intrusion detectors, registry persistence monitors, and automated phishing triage scripts.</p>
+            <div class="metric-item">
+              <div class="metric-value">100%</div>
+              <div class="metric-label">Hands-On Telemetry</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DUAL-MODE TACTICAL TERMINAL -->
+        <div class="hero-right reveal">
+          <div class="terminal-container">
+            <div class="terminal-topbar">
+              <div class="terminal-dots">
+                <span class="terminal-dot dot-red"></span>
+                <span class="terminal-dot dot-yellow"></span>
+                <span class="terminal-dot dot-green"></span>
+              </div>
+              <div class="terminal-title">
+                <span style="color:var(--primary)">●</span> sabari@soc-ops-node:~ (bash)
+              </div>
+              <div style="font-family:var(--font-mono);font-size:0.65rem;color:var(--text-muted)">ONLINE</div>
+            </div>
+
+            <div class="terminal-screen" id="terminalScreen">
+              <div><span class="term-prompt">sabari@soc</span>:<span class="term-user">~</span>$ whoami</div>
+              <div class="term-res term-green">Sabareeshwari S — Cybersecurity Engineer & SOC Analyst</div>
+
+              <div><span class="term-prompt">sabari@soc</span>:<span class="term-user">~</span>$ cat focus.txt</div>
+              <div class="term-res">
+                [+] SIEM Monitoring (Wazuh & Splunk)<br>
+                [+] Endpoint Telemetry & Sysmon Triage<br>
+                [+] MITRE ATT&CK Framework Mapping<br>
+                [+] DAST & Web Vulnerability Assessment<br>
+                [+] Python Security Automation & Tooling
+              </div>
+
+              <div><span class="term-prompt">sabari@soc</span>:<span class="term-user">~</span>$ systemctl status soc-lab.service</div>
+              <div class="term-res">
+                ● soc-lab.service - Enterprise SOC & Detection Lab<br>
+                &nbsp;&nbsp;Endpoint: Windows 11 Pro (SABU: 192.168.56.105)<br>
+                &nbsp;&nbsp;Manager: Ubuntu Server (192.168.56.104)<br>
+                &nbsp;&nbsp;Active: <span class="term-green">active (running)</span> via TCP 1514
+              </div>
+
+              <div id="termHistory"></div>
+
+              <div class="term-input-box">
+                <span class="term-prompt">sabari@soc</span>:<span class="term-user">~</span>$&nbsp;
+                <input type="text" id="termInput" class="term-input-field" placeholder="Type 'help' or click pills below..." autocomplete="off" spellcheck="false">
+              </div>
+            </div>
+
+            <div class="terminal-pills">
+              <button class="term-pill" onclick="runTermCommand('help')">help</button>
+              <button class="term-pill" onclick="runTermCommand('skills')">skills</button>
+              <button class="term-pill" onclick="runTermCommand('projects')">projects</button>
+              <button class="term-pill" onclick="runTermCommand('lab-status')">lab-status</button>
+              <button class="term-pill" onclick="runTermCommand('certs')">certs</button>
+              <button class="term-pill" onclick="runTermCommand('clear')">clear</button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- SKILLS & TOOLKIT -->
-  <section id="skills" class="section-padding">
-    <div class="container">
-      <div class="section-head reveal">
-        <div>
-          <div class="eyebrow">02 // TACTICAL TOOLKIT</div>
-          <h2>Technical proficiency.</h2>
-        </div>
-        <p>Categorized domain expertise grounded in defensive workflows, threat analysis, and practical security engineering.</p>
-      </div>
-
-      <div class="grid-3">
-        <div class="glass-card reveal">
-          <div class="card-top">
-            <div class="eyebrow">SIEM & LOGGING</div>
-            <div class="card-icon">⚡</div>
-          </div>
-          <h3>SIEM & Monitoring</h3>
-          <p style="font-size:0.85rem;color:var(--text-muted)">Telemetry ingestion, custom rules, and alert dashboards.</p>
-          <div class="tags-list">
-            <span class="tag-item">Wazuh SIEM</span><span class="tag-item">Splunk Enterprise</span><span class="tag-item">Sysmon</span><span class="tag-item">Wireshark</span><span class="tag-item">Splunk Phantom</span><span class="tag-item">VirusTotal API</span><span class="tag-item">n8n Automation</span>
-          </div>
-        </div>
-
-        <div class="glass-card reveal">
-          <div class="card-top">
-            <div class="eyebrow">OPERATIONS</div>
-            <div class="card-icon">🛡️</div>
-          </div>
-          <h3>Security Operations</h3>
-          <p style="font-size:0.85rem;color:var(--text-muted)">Incident triage, timeline reconstruction, and containment.</p>
-          <div class="tags-list">
-            <span class="tag-item">Log Analysis</span><span class="tag-item">Alert Triage</span><span class="tag-item">Incident Response</span><span class="tag-item">Threat Detection</span><span class="tag-item">MITRE ATT&CK</span><span class="tag-item">Endpoint Auditing</span>
-          </div>
-        </div>
-
-        <div class="glass-card reveal">
-          <div class="card-top">
-            <div class="eyebrow">SECURITY RESEARCH</div>
-            <div class="card-icon">🔍</div>
-          </div>
-          <h3>Threat Research & DAST</h3>
-          <p style="font-size:0.85rem;color:var(--text-muted)">Vulnerability analysis, threat hunting, and intelligence.</p>
-          <div class="tags-list">
-            <span class="tag-item">Phishing Investigation</span><span class="tag-item">Malware Analysis</span><span class="tag-item">OSINT</span><span class="tag-item">Google Dorking</span><span class="tag-item">DAST Testing</span><span class="tag-item">CTF Challenges</span>
-          </div>
-        </div>
-
-        <div class="glass-card reveal">
-          <div class="card-top">
-            <div class="eyebrow">NETWORKING</div>
-            <div class="card-icon">🌐</div>
-          </div>
-          <h3>Network Defense</h3>
-          <p style="font-size:0.85rem;color:var(--text-muted)">Protocol inspection, traffic flow analysis, and IDS/IPS.</p>
-          <div class="tags-list">
-            <span class="tag-item">TCP/IP Architecture</span><span class="tag-item">DNS Inspection</span><span class="tag-item">HTTP / HTTPS Traffic</span><span class="tag-item">IDS / IPS Concepts</span><span class="tag-item">Packet PCAP Triage</span>
-          </div>
-        </div>
-
-        <div class="glass-card reveal">
-          <div class="card-top">
-            <div class="eyebrow">INFRASTRUCTURE</div>
-            <div class="card-icon">💻</div>
-          </div>
-          <h3>Operating Systems</h3>
-          <p style="font-size:0.85rem;color:var(--text-muted)">System internals, registry auditing, and virtualization.</p>
-          <div class="tags-list">
-            <span class="tag-item">Kali Linux</span><span class="tag-item">Ubuntu Server</span><span class="tag-item">Windows 10/11 Enterprise</span><span class="tag-item">Windows Registry</span><span class="tag-item">VirtualBox / VMware</span>
-          </div>
-        </div>
-
-        <div class="glass-card reveal">
-          <div class="card-top">
-            <div class="eyebrow">DEVELOPMENT</div>
-            <div class="card-icon">⌨️</div>
-          </div>
-          <h3>Programming & Automation</h3>
-          <p style="font-size:0.85rem;color:var(--text-muted)">Scripting security utilities, parsers, and API integrations.</p>
-          <div class="tags-list">
-            <span class="tag-item">Python 3</span><span class="tag-item">Bash Scripting</span><span class="tag-item">C Programming</span><span class="tag-item">FastAPI / Flask</span><span class="tag-item">Regex & Parsers</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SOC LAB BLUEPRINT -->
-  <section id="soc" class="section-padding">
-    <div class="container">
-      <div class="section-head reveal">
-        <div>
-          <div class="eyebrow">03 // LAB ENVIRONMENT & ARCHITECTURE</div>
-          <h2>Live Home SOC Lab.</h2>
-        </div>
-        <p>A multi-node sandbox engineered for safe adversary simulation, granular endpoint telemetry collection, and detection rule validation.</p>
-      </div>
-
-      <div class="soc-lab-container reveal">
-        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
+    <!-- ABOUT SECTION -->
+    <section id="about" class="section-padding">
+      <div class="container">
+        <div class="section-head reveal">
           <div>
-            <span class="badge badge-cyan">LAB BLUEPRINT v2.4</span>
-            <span class="badge badge-blue" style="margin-left:6px">END-TO-END TELEMETRY</span>
+            <div class="eyebrow">01 // PROFILE & METHODOLOGY</div>
+            <h2>Security-minded by practice.</h2>
           </div>
-          <a class="btn btn-sm btn-secondary" href="https://github.com/sabsec-h4x/windows-soc-detection-lab" target="_blank" rel="noopener">
-            View Lab Repository ↗
-          </a>
+          <p>I learn cybersecurity through lab building, adversary simulation, telemetry analysis, and rigorous technical documentation.</p>
         </div>
 
-        <div class="pipeline-diagram">
-          <div class="pipeline-node">
-            <h5>KALI LINUX</h5>
-            <small>Adversary Node</small>
-            <div class="node-badge" style="background:var(--neon-red)"></div>
-          </div>
-          <div class="pipeline-arrow">➔</div>
-          <div class="pipeline-node">
-            <h5>WINDOWS 11</h5>
-            <small>Target + Sysmon EDR</small>
-            <div class="node-badge" style="background:var(--neon-amber)"></div>
-          </div>
-          <div class="pipeline-arrow">➔</div>
-          <div class="pipeline-node active-node">
-            <h5>WAZUH SIEM</h5>
-            <small>Manager & Correlator</small>
-            <div class="node-badge" style="background:var(--neon-cyan)"></div>
-          </div>
-          <div class="pipeline-arrow">➔</div>
-          <div class="pipeline-node">
-            <h5>SOAR / NOTIFY</h5>
-            <small>n8n & Alert Center</small>
-            <div class="node-badge" style="background:var(--neon-blue)"></div>
-          </div>
-        </div>
-
-        <div class="soc-flow-steps">
-          <div class="soc-flow-box"><b>01 / ATTACK</b>Simulate attacks (brute force, persistence, execution).</div>
-          <div class="soc-flow-box"><b>02 / TELEMETRY</b>Sysmon & Windows Event Logs forward to Wazuh Agent.</div>
-          <div class="soc-flow-box"><b>03 / CORRELATION</b>Custom Wazuh rules trigger against MITRE ATT&CK IDs.</div>
-          <div class="soc-flow-box"><b>04 / TRIAGE</b>Examine event timelines, user contexts, and hash IOCs.</div>
-          <div class="soc-flow-box"><b>05 / CONTAIN</b>Document findings, block IOCs, and refine baseline.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJECTS (FILTERABLE) -->
-  <section id="projects" class="section-padding">
-    <div class="container">
-      <div class="section-head reveal">
-        <div>
-          <div class="eyebrow">04 // PRACTICAL PROJECTS</div>
-          <h2>Built to defend. Built to prove.</h2>
-        </div>
-        <p>Open-source defense tools, detection platforms, and security engineering projects with live repositories.</p>
-      </div>
-
-      <div class="filter-tabs reveal">
-        <button class="filter-tab active" onclick="filterProjects('all')">ALL PROJECTS</button>
-        <button class="filter-tab" onclick="filterProjects('soc')">SOC & SIEM</button>
-        <button class="filter-tab" onclick="filterProjects('threat')">THREAT DETECTION</button>
-        <button class="filter-tab" onclick="filterProjects('appsec')">WAF & APPSEC</button>
-        <button class="filter-tab" onclick="filterProjects('endpoint')">ENDPOINT SECURITY</button>
-      </div>
-
-      <div class="grid-2" id="projectsGrid"></div>
-    </div>
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section id="experience" class="section-padding">
-    <div class="container">
-      <div class="section-head reveal">
-        <div>
-          <div class="eyebrow">05 // WORK & LEADERSHIP</div>
-          <h2>Hands-on industry exposure.</h2>
-        </div>
-        <p>Real-world security analyst internships, vulnerability disclosure programs, and CTF organization.</p>
-      </div>
-
-      <div class="timeline-container" id="experienceContainer"></div>
-    </div>
-  </section>
-
-  <!-- TEAM T3AM KNULL -->
-  <section id="team" class="section-padding">
-    <div class="container">
-      <div class="section-head reveal">
-        <div>
-          <div class="eyebrow">06 // COMPETITIVE CYBERSECURITY</div>
-          <h2>T3AM KNULL.</h2>
-        </div>
-        <p>Competitive Capture The Flag (CTF) team pushing boundaries in reverse engineering, web exploitation, and cryptography.</p>
-      </div>
-
-      <div class="team-grid">
-        <div class="glass-card team-hero-card reveal">
-          <div>
-            <div class="eyebrow">ACTIVE ROSTER</div>
-            <div class="team-title">T3AM<br><span>KNULL</span></div>
-            <p style="color:var(--text-muted);font-size:0.95rem;margin-bottom:24px">
-              "Think together. Break smarter." Collaborative CTF team solving high-complexity offensive and defensive challenges.
+        <div class="grid-2">
+          <div class="bento-card reveal">
+            <div class="card-head">
+              <div class="eyebrow">BACKGROUND & FOCUS</div>
+              <span class="badge badge-primary">BLUE TEAM SPECIALIST</span>
+            </div>
+            <p style="font-size:1.02rem;color:var(--text-secondary);margin-bottom:18px">
+              I am a <strong>Cybersecurity Engineering student</strong> specializing in defensive security operations, with hands-on experience in SIEM telemetry, Wazuh, Splunk, Sysmon, packet-level traffic inspection, alert triage, and incident response.
             </p>
+            <p style="font-size:0.95rem;color:var(--text-secondary);margin-bottom:24px">
+              My practical experience spans both defensive monitoring and proactive assessment: executing DAST testing on live vulnerability disclosure programs, performing OSINT and phishing investigation, building security automation tools in Python, and competing in collegiate and national CTF competitions with <strong>T3AM KNULL</strong>.
+            </p>
+
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:auto">
+              <a class="bento-card" style="padding:14px" href="https://tryhackme.com/p/sabarih4x" target="_blank" rel="noopener">
+                <small style="font-family:var(--font-mono);font-size:0.62rem;color:var(--text-muted)">TRYHACKME</small>
+                <div style="font-weight:700;font-size:0.95rem;color:#fff;margin-top:2px">sabarih4x ↗</div>
+              </a>
+              <a class="bento-card" style="padding:14px" href="https://app.letsdefend.io/user/Sabari19" target="_blank" rel="noopener">
+                <small style="font-family:var(--font-mono);font-size:0.62rem;color:var(--text-muted)">LETSDEFEND</small>
+                <div style="font-weight:700;font-size:0.95rem;color:#fff;margin-top:2px">Sabari19 ↗</div>
+              </a>
+              <a class="bento-card" style="padding:14px" href="https://www.linkedin.com/in/sabareeshwari-selvarajan-75a985294/" target="_blank" rel="noopener">
+                <small style="font-family:var(--font-mono);font-size:0.62rem;color:var(--text-muted)">LINKEDIN</small>
+                <div style="font-weight:700;font-size:0.95rem;color:#fff;margin-top:2px">Connect ↗</div>
+              </a>
+            </div>
           </div>
+
+          <div style="display:grid;gap:16px;">
+            <div class="bento-card reveal">
+              <div class="card-head">
+                <div class="eyebrow">PILLAR 01</div>
+                <div class="badge badge-primary">SOC & SIEM</div>
+              </div>
+              <h3 style="font-size:1.2rem;margin-bottom:6px">Detection Engineering & Alert Triage</h3>
+              <p style="font-size:0.88rem;color:var(--text-secondary)">
+                Configuring centralized log forwarding via Wazuh, analyzing Sysmon telemetry (Process, Network, DNS, File, Registry), and building custom detection rules aligned to MITRE ATT&CK.
+              </p>
+            </div>
+
+            <div class="bento-card reveal">
+              <div class="card-head">
+                <div class="eyebrow">PILLAR 02</div>
+                <div class="badge badge-cyan">OFFENSIVE AUDIT</div>
+              </div>
+              <h3 style="font-size:1.2rem;margin-bottom:6px">Vulnerability Research & DAST</h3>
+              <p style="font-size:0.88rem;color:var(--text-secondary)">
+                Conducting web vulnerability assessments and responsible disclosure. Responsible discovery recognized in the <strong>University of Texas at Austin (UT Austin) Security Hall of Fame</strong>.
+              </p>
+            </div>
+
+            <div class="bento-card reveal">
+              <div class="card-head">
+                <div class="eyebrow">PILLAR 03</div>
+                <div class="badge badge-violet">DEFENSIVE DEV</div>
+              </div>
+              <h3 style="font-size:1.2rem;margin-bottom:6px">Security Tooling & Automation</h3>
+              <p style="font-size:0.88rem;color:var(--text-secondary)">
+                Engineering custom security software: SentinelShield (FastAPI/React WAF with ML anomaly detection), VoidScan (automated security scanner), and Windows Registry Persistence monitors.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS & TECHNICAL TOOLKIT -->
+    <section id="skills" class="section-padding">
+      <div class="container">
+        <div class="section-head reveal">
           <div>
-            <a class="btn btn-primary" href="https://www.linkedin.com/in/team-knull-ctf-44525b37a/" target="_blank" rel="noopener">Team LinkedIn Profile ↗</a>
+            <div class="eyebrow">02 // TACTICAL TOOLKIT</div>
+            <h2>Technical proficiency.</h2>
           </div>
+          <p>Structured domain knowledge grounded in defensive operations, system internals, threat intelligence, and automation.</p>
         </div>
 
-        <div class="ctf-podiums reveal">
-          <div class="podium-item gold">
-            <div class="podium-rank">1st</div>
-            <div class="podium-info">
-              <h4>CTF Quest · Thiran Hackathon 2026</h4>
-              <p>Top Finish · Offensive & Defensive CTF</p>
+        <div class="grid-3">
+          <div class="bento-card reveal">
+            <div class="card-head">
+              <div class="eyebrow">SIEM & OBSERVABILITY</div>
+              <div class="card-icon">⚡</div>
+            </div>
+            <h3 style="font-size:1.2rem;margin-bottom:8px">SIEM & Telemetry</h3>
+            <p style="font-size:0.85rem;color:var(--text-secondary);margin-bottom:14px">Log ingestion, parsing rules, alert correlation, and dashboards.</p>
+            <div class="stack-tags">
+              <span class="stack-tag">Wazuh SIEM</span>
+              <span class="stack-tag">Splunk Enterprise</span>
+              <span class="stack-tag">Sysmon</span>
+              <span class="stack-tag">Wireshark</span>
+              <span class="stack-tag">Splunk Phantom</span>
+              <span class="stack-tag">VirusTotal API</span>
+              <span class="stack-tag">n8n Automation</span>
             </div>
           </div>
-          <div class="podium-item bronze">
-            <div class="podium-rank">3rd</div>
-            <div class="podium-info">
-              <h4>PhantomFlags · DRESTEIN '25</h4>
-              <p>Podium Finish · Multi-Category CTF</p>
+
+          <div class="bento-card reveal">
+            <div class="card-head">
+              <div class="eyebrow">OPERATIONS</div>
+              <div class="card-icon">🛡️</div>
+            </div>
+            <h3 style="font-size:1.2rem;margin-bottom:8px">Security Operations</h3>
+            <p style="font-size:0.85rem;color:var(--text-secondary);margin-bottom:14px">Incident triage, timeline reconstruction, and containment.</p>
+            <div class="stack-tags">
+              <span class="stack-tag">Log Analysis</span>
+              <span class="stack-tag">Alert Triage</span>
+              <span class="stack-tag">Incident Response</span>
+              <span class="stack-tag">Threat Detection</span>
+              <span class="stack-tag">MITRE ATT&CK</span>
+              <span class="stack-tag">Endpoint Auditing</span>
             </div>
           </div>
-          <div class="podium-item bronze">
-            <div class="podium-rank">3rd</div>
-            <div class="podium-info">
-              <h4>Cybercom CTF 2025</h4>
-              <p>Competitive National Cybersecurity Tournament</p>
+
+          <div class="bento-card reveal">
+            <div class="card-head">
+              <div class="eyebrow">RESEARCH</div>
+              <div class="card-icon">🔍</div>
+            </div>
+            <h3 style="font-size:1.2rem;margin-bottom:8px">Threat Research & DAST</h3>
+            <p style="font-size:0.85rem;color:var(--text-secondary);margin-bottom:14px">Vulnerability analysis, threat hunting, and intelligence.</p>
+            <div class="stack-tags">
+              <span class="stack-tag">Phishing Investigation</span>
+              <span class="stack-tag">Malware Analysis</span>
+              <span class="stack-tag">OSINT</span>
+              <span class="stack-tag">Google Dorking</span>
+              <span class="stack-tag">DAST Testing</span>
+              <span class="stack-tag">CTF Competitions</span>
+            </div>
+          </div>
+
+          <div class="bento-card reveal">
+            <div class="card-head">
+              <div class="eyebrow">NETWORKING</div>
+              <div class="card-icon">🌐</div>
+            </div>
+            <h3 style="font-size:1.2rem;margin-bottom:8px">Network Defense</h3>
+            <p style="font-size:0.85rem;color:var(--text-secondary);margin-bottom:14px">Protocol inspection, traffic flow analysis, and IDS/IPS.</p>
+            <div class="stack-tags">
+              <span class="stack-tag">TCP/IP Architecture</span>
+              <span class="stack-tag">DNS Inspection</span>
+              <span class="stack-tag">HTTP/HTTPS Traffic</span>
+              <span class="stack-tag">IDS / IPS Concepts</span>
+              <span class="stack-tag">Packet PCAP Triage</span>
+            </div>
+          </div>
+
+          <div class="bento-card reveal">
+            <div class="card-head">
+              <div class="eyebrow">INFRASTRUCTURE</div>
+              <div class="card-icon">💻</div>
+            </div>
+            <h3 style="font-size:1.2rem;margin-bottom:8px">Operating Systems</h3>
+            <p style="font-size:0.85rem;color:var(--text-secondary);margin-bottom:14px">System internals, registry auditing, and virtualization.</p>
+            <div class="stack-tags">
+              <span class="stack-tag">Kali Linux</span>
+              <span class="stack-tag">Ubuntu Server</span>
+              <span class="stack-tag">Windows 10/11 Enterprise</span>
+              <span class="stack-tag">Windows Registry</span>
+              <span class="stack-tag">VirtualBox / VMware</span>
+            </div>
+          </div>
+
+          <div class="bento-card reveal">
+            <div class="card-head">
+              <div class="eyebrow">DEVELOPMENT</div>
+              <div class="card-icon">⌨️</div>
+            </div>
+            <h3 style="font-size:1.2rem;margin-bottom:8px">Programming & Automation</h3>
+            <p style="font-size:0.85rem;color:var(--text-secondary);margin-bottom:14px">Scripting defensive utilities, parsers, and API integrations.</p>
+            <div class="stack-tags">
+              <span class="stack-tag">Python 3</span>
+              <span class="stack-tag">Bash Scripting</span>
+              <span class="stack-tag">C Programming</span>
+              <span class="stack-tag">FastAPI / Flask</span>
+              <span class="stack-tag">Regex & Parsers</span>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CERTIFICATIONS -->
-  <section id="certifications" class="section-padding">
-    <div class="container">
-      <div class="section-head reveal">
-        <div>
-          <div class="eyebrow">07 // VERIFIED CREDENTIALS</div>
-          <h2>Certifications.</h2>
+    <!-- FEATURED SOC DETECTION LAB & BLUEPRINT -->
+    <section id="soc-lab" class="section-padding">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">03 // FEATURED LAB & ARCHITECTURE</div>
+            <h2>Live Home SOC Lab.</h2>
+          </div>
+          <p>A multi-node sandbox engineered for safe adversary simulation, granular endpoint telemetry collection, and detection rule validation.</p>
         </div>
-        <p>Accredited coursework and verified technical credentials in cybersecurity, SOC operations, and threat modeling.</p>
-      </div>
 
-      <div class="grid-3" id="certGrid"></div>
-    </div>
-  </section>
+        <div class="blueprint-container reveal">
+          <div class="blueprint-top">
+            <div style="display:flex;align-items:center;gap:10px">
+              <span class="badge badge-primary">LAB BLUEPRINT v2.4</span>
+              <span class="badge badge-cyan">TELEMETRY: ACTIVE (TCP 1514)</span>
+            </div>
+            <a class="btn btn-sm btn-secondary" href="https://github.com/sabsec-h4x/windows-soc-detection-lab" target="_blank" rel="noopener">
+              View Lab Repository ↗
+            </a>
+          </div>
 
-  <!-- ACHIEVEMENTS -->
-  <section id="achievements" class="section-padding">
-    <div class="container">
-      <div class="section-head reveal">
-        <div>
-          <div class="eyebrow">08 // DISTINCTIONS & RESEARCH</div>
-          <h2>Achievements & Hall of Fame.</h2>
+          <!-- Interactive Node Pipeline -->
+          <div class="pipeline-grid">
+            <div class="pipeline-card" onclick="selectNode('attacker')" id="node-attacker">
+              <h4>KALI LINUX</h4>
+              <small>Adversary Simulation</small>
+              <span class="node-state" style="background:var(--danger)"></span>
+            </div>
+
+            <div class="pipeline-arrow">➔</div>
+
+            <div class="pipeline-card" onclick="selectNode('endpoint')" id="node-endpoint">
+              <h4>WINDOWS 11</h4>
+              <small>Target + Sysmon EDR</small>
+              <span class="node-state" style="background:var(--amber)"></span>
+            </div>
+
+            <div class="pipeline-arrow">➔</div>
+
+            <div class="pipeline-card active" onclick="selectNode('siem')" id="node-siem">
+              <h4>WAZUH SIEM</h4>
+              <small>Manager & Correlator</small>
+              <span class="node-state" style="background:var(--primary)"></span>
+            </div>
+
+            <div class="pipeline-arrow">➔</div>
+
+            <div class="pipeline-card" onclick="selectNode('soar')" id="node-soar">
+              <h4>SOAR / TRIAGE</h4>
+              <small>n8n Alert Center</small>
+              <span class="node-state" style="background:var(--secondary)"></span>
+            </div>
+          </div>
+
+          <!-- Live Node Inspector -->
+          <div class="inspector-panel" id="inspectorPanel">
+            <div>
+              <div class="inspector-title" id="inspTitle">WAZUH SIEM MANAGER (Ubuntu 22.04 LTS)</div>
+              <p style="color:var(--text-muted);font-size:0.75rem" id="inspRole">Core Telemetry Ingestion, Decoding & Correlation Engine</p>
+            </div>
+            <ul class="inspector-specs" id="inspSpecs">
+              <li><b>IP Address:</b> 192.168.56.104</li>
+              <li><b>Listening Port:</b> TCP 1514 (Encrypted Log Stream)</li>
+              <li><b>Active Modules:</b> Analysisd, Remoted, Wazuh Indexer (OpenSearch), Wazuh Dashboard</li>
+              <li><b>Rule Engine:</b> Built-in decoders & custom detection rules matching MITRE ATT&CK techniques</li>
+            </ul>
+          </div>
         </div>
-        <p>Public recognition and milestones across vulnerability disclosure, CTF competitions, and security challenges.</p>
       </div>
+    </section>
 
-      <div class="grid-3" id="achGrid"></div>
-    </div>
-  </section>
-
-  <!-- EDUCATION -->
-  <section class="section-padding">
-    <div class="container">
-      <div class="section-head reveal">
-        <div>
-          <div class="eyebrow">09 // ACADEMIC FOUNDATION</div>
-          <h2>Education.</h2>
+    <!-- PROJECTS WITH FILTER & MITRE ATT&CK MAPPING -->
+    <section id="projects" class="section-padding">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">04 // PRACTICAL PROJECTS</div>
+            <h2>Built to defend. Built to prove.</h2>
+          </div>
+          <p>Defensive tools, detection frameworks, and security platforms with verified open-source code repositories.</p>
         </div>
-      </div>
 
-      <div class="glass-card reveal" style="border-left:4px solid var(--neon-cyan)">
-        <div class="card-top">
-          <div class="eyebrow">SEP 2023 — OCT 2027</div>
-          <span class="badge badge-cyan">UNDERGRADUATE</span>
-        </div>
-        <h3 style="font-size:1.35rem;margin-bottom:6px">Bachelor of Engineering in Cyber Security</h3>
-        <p style="color:var(--text-muted)">PSNA College of Engineering and Technology · Affiliated to Anna University</p>
-        <p style="color:var(--text-dim);font-size:0.8rem;margin-top:10px;font-family:var(--font-mono)">
-          Focus: Network Security, Cryptography, Operating System Internals, Cyber Laws, Ethical Hacking & Digital Forensics.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT & TRANSMISSION -->
-  <section id="contact" class="section-padding">
-    <div class="container">
-      <div class="contact-grid">
-        <div class="contact-info reveal">
-          <div class="eyebrow">10 // TRANSMISSION CHANNELS</div>
-          <h2>Let's build something secure.</h2>
-          <p style="color:var(--text-muted);margin-bottom:28px;font-size:1.02rem">
-            I am actively looking for SOC Analyst opportunities, Blue Team roles, and cybersecurity research collaborations. Feel free to reach out directly.
-          </p>
-          <div style="display:flex;gap:12px;flex-wrap:wrap">
-            <button class="btn btn-primary" onclick="copyEmail()">Copy Email Address</button>
-            <a class="btn btn-secondary" href="mailto:sabariselvarajan1119@gmail.com">Direct Mail Client ↗</a>
+        <div class="filter-wrapper reveal">
+          <div class="filter-label">Filter by Domain & Focus Area</div>
+          <div class="filter-tabs">
+            <button class="filter-btn active" onclick="filterProjects('all')">ALL PROJECTS</button>
+            <button class="filter-btn" onclick="filterProjects('soc')">SOC & SIEM</button>
+            <button class="filter-btn" onclick="filterProjects('threat')">THREAT DETECTION</button>
+            <button class="filter-btn" onclick="filterProjects('appsec')">WAF & APPSEC</button>
+            <button class="filter-btn" onclick="filterProjects('endpoint')">ENDPOINT FORENSICS</button>
           </div>
         </div>
 
-        <div class="contact-links-list reveal">
-          <div class="contact-item-link" style="cursor:pointer" onclick="copyEmail()">
-            <div><small>PRIMARY EMAIL</small><span class="val">sabariselvarajan1119@gmail.com</span></div>
-            <span class="badge badge-cyan">CLICK TO COPY</span>
-          </div>
-          <a class="contact-item-link" href="https://github.com/sabsec-h4x" target="_blank" rel="noopener">
-            <div><small>GITHUB REPOSITORIES</small><span class="val">github.com/sabsec-h4x</span></div>
-            <span style="color:var(--neon-cyan)">↗</span>
-          </a>
-          <a class="contact-item-link" href="https://www.linkedin.com/in/sabareeshwari-selvarajan-75a985294/" target="_blank" rel="noopener">
-            <div><small>LINKEDIN PROFILE</small><span class="val">Sabareeshwari Selvarajan</span></div>
-            <span style="color:var(--neon-cyan)">↗</span>
-          </a>
-          <a class="contact-item-link" href="https://tryhackme.com/p/sabarih4x" target="_blank" rel="noopener">
-            <div><small>TRYHACKME PROFILE</small><span class="val">tryhackme.com/p/sabarih4x</span></div>
-            <span style="color:var(--neon-cyan)">↗</span>
-          </a>
-          <a class="contact-item-link" href="https://app.letsdefend.io/user/Sabari19" target="_blank" rel="noopener">
-            <div><small>LETSDEFEND PROFILE</small><span class="val">app.letsdefend.io/user/Sabari19</span></div>
-            <span style="color:var(--neon-cyan)">↗</span>
-          </a>
+        <div class="grid-2" id="projectsGrid">
+          <!-- Populated dynamically via JS -->
         </div>
       </div>
-    </div>
-  </section>
-</main>
+    </section>
 
-<footer>
-  <div class="container footer-inner">
-    <div>© 2026 Sabareeshwari S · Cyber Command & Defense Operations</div>
-    <div style="display:flex;gap:18px">
-      <a href="#home">Back to Top ↑</a>
-      <a href="https://github.com/sabsec-h4x" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://www.linkedin.com/in/sabareeshwari-selvarajan-75a985294/" target="_blank" rel="noopener">LinkedIn</a>
+    <!-- EXPERIENCE SECTION -->
+    <section id="experience" class="section-padding">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">05 // WORK & LEADERSHIP</div>
+            <h2>Hands-on industry exposure.</h2>
+          </div>
+          <p>Real-world security analyst internships, vulnerability disclosure programs, and CTF organization.</p>
+        </div>
+
+        <div class="timeline-wrap" id="experienceWrap">
+          <!-- Populated dynamically via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPETITIVE PROOF & T3AM KNULL -->
+    <section id="team" class="section-padding">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">06 // COMPETITIVE CYBERSECURITY</div>
+            <h2>T3AM KNULL.</h2>
+          </div>
+          <p>Competitive Capture The Flag (CTF) collaboration solving high-complexity offensive and defensive challenges.</p>
+        </div>
+
+        <div class="team-showcase">
+          <div class="bento-card reveal" style="justify-content:space-between">
+            <div>
+              <div class="card-head">
+                <div class="eyebrow">ACTIVE ROSTER</div>
+                <span class="badge badge-primary">OFFENSIVE & DEFENSIVE</span>
+              </div>
+              <div class="team-hero-title">
+                T3AM<br><span>KNULL</span>
+              </div>
+              <p style="font-size:1.02rem;color:var(--text-secondary);margin-bottom:24px">
+                "Think together. Break smarter." Collaborative CTF team actively competing in collegiate, state, and national security challenges.
+              </p>
+            </div>
+            <div>
+              <a class="btn btn-primary" href="https://www.linkedin.com/in/team-knull-ctf-44525b37a/" target="_blank" rel="noopener">
+                Team LinkedIn Profile ↗
+              </a>
+            </div>
+          </div>
+
+          <div class="podium-list reveal">
+            <div class="podium-card gold">
+              <div class="podium-rank">1st</div>
+              <div>
+                <h4 style="font-size:1.05rem;color:#fff">CTF Quest · Thiran Hackathon 2026</h4>
+                <p style="font-family:var(--font-mono);font-size:0.75rem;color:var(--text-secondary)">Champion Finish · Multi-category Cyber Challenge</p>
+              </div>
+            </div>
+
+            <div class="podium-card bronze">
+              <div class="podium-rank">3rd</div>
+              <div>
+                <h4 style="font-size:1.05rem;color:#fff">PhantomFlags · DRESTEIN '25</h4>
+                <p style="font-family:var(--font-mono);font-size:0.75rem;color:var(--text-secondary)">Podium Placement · National Technical Symposium CTF</p>
+              </div>
+            </div>
+
+            <div class="podium-card bronze">
+              <div class="podium-rank">3rd</div>
+              <div>
+                <h4 style="font-size:1.05rem;color:#fff">Cybercom CTF 2025</h4>
+                <p style="font-family:var(--font-mono);font-size:0.75rem;color:var(--text-secondary)">Podium Finish · Competitive Collegiate Tournament</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section id="certifications" class="section-padding">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">07 // VERIFIED CREDENTIALS</div>
+            <h2>Certifications & Hall of Fame.</h2>
+          </div>
+          <p>Accredited coursework, verified credentials, and responsible disclosure research recognition.</p>
+        </div>
+
+        <div class="grid-3" id="certGrid">
+          <!-- Populated dynamically via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT TRANSMISSION HUB -->
+    <section id="contact" class="section-padding">
+      <div class="container">
+        <div class="contact-wrap">
+          <div class="reveal">
+            <div class="eyebrow">08 // TRANSMISSION HUB</div>
+            <h2 style="font-family:var(--font-display);font-size:clamp(2.4rem,4.5vw,3.8rem);font-weight:800;line-height:1.05;margin-bottom:18px">
+              Let's build something secure.
+            </h2>
+            <p style="font-size:1.05rem;color:var(--text-secondary);margin-bottom:28px">
+              I am actively seeking SOC Analyst roles, Blue Team opportunities, and cybersecurity research collaborations. Feel free to connect directly.
+            </p>
+
+            <div style="display:flex;gap:12px;flex-wrap:wrap">
+              <button class="btn btn-primary" onclick="copyEmail()">Copy Email Address</button>
+              <a class="btn btn-secondary" href="mailto:sabariselvarajan1119@gmail.com">Direct Mail Client ↗</a>
+            </div>
+          </div>
+
+          <div class="contact-card-list reveal">
+            <div class="contact-item" style="cursor:pointer" onclick="copyEmail()">
+              <div>
+                <small>PRIMARY EMAIL</small>
+                <div class="contact-val">sabariselvarajan1119@gmail.com</div>
+              </div>
+              <span class="badge badge-primary">CLICK TO COPY</span>
+            </div>
+
+            <a class="contact-item" href="https://github.com/sabsec-h4x" target="_blank" rel="noopener">
+              <div>
+                <small>GITHUB REPOSITORIES</small>
+                <div class="contact-val">github.com/sabsec-h4x</div>
+              </div>
+              <span style="color:var(--primary)">↗</span>
+            </a>
+
+            <a class="contact-item" href="https://www.linkedin.com/in/sabareeshwari-selvarajan-75a985294/" target="_blank" rel="noopener">
+              <div>
+                <small>LINKEDIN PROFILE</small>
+                <div class="contact-val">Sabareeshwari Selvarajan</div>
+              </div>
+              <span style="color:var(--primary)">↗</span>
+            </a>
+
+            <a class="contact-item" href="https://tryhackme.com/p/sabarih4x" target="_blank" rel="noopener">
+              <div>
+                <small>TRYHACKME PROFILE</small>
+                <div class="contact-val">tryhackme.com/p/sabarih4x</div>
+              </div>
+              <span style="color:var(--primary)">↗</span>
+            </a>
+
+            <a class="contact-item" href="https://app.letsdefend.io/user/Sabari19" target="_blank" rel="noopener">
+              <div>
+                <small>LETSDEFEND PROFILE</small>
+                <div class="contact-val">app.letsdefend.io/user/Sabari19</div>
+              </div>
+              <span style="color:var(--primary)">↗</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-wrap">
+      <div>
+        © 2026 Sabareeshwari S · Cyber Command & Defense Operations Portfolio
+      </div>
+      <div style="display:flex;gap:20px">
+        <a href="#home">Back to Top ↑</a>
+        <a href="https://github.com/sabsec-h4x" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/sabareeshwari-selvarajan-75a985294/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- COPY TOAST -->
+  <div id="toast">✓ Email copied to clipboard: sabariselvarajan1119@gmail.com</div>
+
+  <!-- COMMAND PALETTE MODAL (CMD+K) -->
+  <div class="modal-overlay" id="cmdPaletteModal">
+    <div class="modal-box">
+      <div class="modal-box-head">
+        <div style="font-family:var(--font-mono);font-size:0.8rem;color:var(--primary)">COMMAND PALETTE // NAVIGATION</div>
+        <button class="modal-close" onclick="closeCommandPalette()">✕</button>
+      </div>
+      <div class="modal-box-body">
+        <input type="text" id="paletteSearch" class="palette-input" placeholder="Type a section or command (e.g., 'projects', 'resume', 'email')..." oninput="filterPalette()">
+        <ul class="palette-list" id="paletteList">
+          <li class="palette-item" onclick="navigatePalette('#projects')"><span>📁 Jump to Practical Projects</span><small>Section 04</small></li>
+          <li class="palette-item" onclick="navigatePalette('#soc-lab')"><span>🛡️ Inspect Home SOC Lab</span><small>Section 03</small></li>
+          <li class="palette-item" onclick="navigatePalette('#skills')"><span>⚡ View Technical Skills & Tools</span><small>Section 02</small></li>
+          <li class="palette-item" onclick="navigatePalette('#certifications')"><span>📜 View Verified Certifications</span><small>Section 07</small></li>
+          <li class="palette-item" onclick="navigatePalette('#experience')"><span>💼 View Experience & Internships</span><small>Section 05</small></li>
+          <li class="palette-item" onclick="navigatePalette('#contact')"><span>📬 Contact Information</span><small>Section 08</small></li>
+          <li class="palette-item" onclick="window.open('https://drive.google.com/file/d/1PQ5mNkb475Bc5xqjcoUQ0DLiybV2MzrJ/view?usp=sharing','_blank')"><span>📄 View Verified Resume</span><small>Google Drive ↗</small></li>
+          <li class="palette-item" onclick="copyEmail(); closeCommandPalette()"><span>📋 Copy Email Address</span><small>Clipboard</small></li>
+          <li class="palette-item" onclick="toggleAudio(); closeCommandPalette()"><span>🔊 Toggle Tactical Audio</span><small>Web Audio API</small></li>
+        </ul>
+      </div>
     </div>
   </div>
-</footer>
 
-<div id="toast">✓ Email copied to clipboard: sabariselvarajan1119@gmail.com</div>
-
-<script>
-let audioEnabled = true;
-let audioCtx = null;
-
-function playBeep(freq = 880, type = 'sine', duration = 0.08) {
-  if (!audioEnabled) return;
-  try {
-    if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-    if (audioCtx.state === 'suspended') audioCtx.resume();
-    const osc = audioCtx.createOscillator();
-    const gain = audioCtx.createGain();
-    osc.type = type;
-    osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
-    gain.gain.setValueAtTime(0.04, audioCtx.currentTime);
-    gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
-    osc.connect(gain);
-    gain.connect(audioCtx.destination);
-    osc.start();
-    osc.stop(audioCtx.currentTime + duration);
-  } catch (e) {}
-}
-
-document.getElementById('audioToggle').addEventListener('click', () => {
-  audioEnabled = !audioEnabled;
-  document.getElementById('audioStatus').textContent = audioEnabled ? 'ON' : 'OFF';
-  if (audioEnabled) playBeep(920, 'sine', 0.1);
-});
-
-function updateClock() {
-  const now = new Date();
-  document.getElementById('liveClock').textContent = now.toISOString().substring(11, 19) + ' UTC';
-}
-setInterval(updateClock, 1000);
-updateClock();
-
-const projectsData = [
-  {
-    title: "Home SOC & Detection Lab",
-    category: "soc",
-    badge: "SOC / BLUE TEAM",
-    timeframe: "2026 — Present",
-    desc: "A self-built Wazuh SIEM telemetry environment orchestrating Sysmon, Windows 11 and Kali Linux for controlled attack simulation, event log ingestion, and detection engineering.",
-    mitre: ["T1059 Command Execution", "T1046 Network Scan"],
-    tags: ["Wazuh", "Sysmon", "Windows 11", "Kali Linux", "Detection Engineering"],
-    repo: "https://github.com/sabsec-h4x/windows-soc-detection-lab"
-  },
-  {
-    title: "VoidScan — Security Assessment Platform",
-    category: "threat",
-    badge: "ASSESSMENT / RECON",
-    timeframe: "2026",
-    desc: "Kali Linux–based automated security assessment platform that streamlines reconnaissance, asset discovery, vulnerability detection and risk correlation with real-time dashboard visualizations.",
-    mitre: ["T1595 Active Scanning", "T1592 Gather Victim Host Info"],
-    tags: ["Kali Linux", "Python", "Reconnaissance", "Vulnerability Detection", "Risk Analysis"],
-    repo: "https://github.com/sabsec-h4x/VoidScan"
-  },
-  {
-    title: "Multi-Layered Phishing Detection Tool",
-    category: "threat",
-    badge: "THREAT DETECTION",
-    timeframe: "2026 — Present",
-    desc: "Automated phishing detection tool with IMAP inbox monitoring, body text tokenization, and live VirusTotal / URLScan.io API integration for instant reputation scoring.",
-    mitre: ["T1566 Phishing", "T1204 User Execution"],
-    tags: ["Python", "Flask", "IMAP", "VirusTotal API", "URLScan.io"],
-    repo: "https://github.com/sabsec-h4x/Multi-Layered-Phishing-Detection-Tool"
-  },
-  {
-    title: "SentinelShield — WAF & IDS",
-    category: "appsec",
-    badge: "WAF / IDS",
-    timeframe: "Feb 2026 — May 2026",
-    desc: "Full-stack Web Application Firewall and Intrusion Detection System built with FastAPI and React, featuring Isolation Forest machine learning anomaly detection, GeoIP filtering, and Redis rate limiting.",
-    mitre: ["T1190 Exploit Public-Facing App"],
-    tags: ["FastAPI", "React", "Isolation Forest", "Redis", "GeoIP", "AppSec"],
-    repo: "https://github.com/sabsec-h4x/sentinelshield"
-  },
-  {
-    title: "Windows Registry Integrity Monitor",
-    category: "endpoint",
-    badge: "ENDPOINT SECURITY",
-    timeframe: "Feb 2026 — Mar 2026",
-    desc: "Endpoint integrity monitoring tool designed to detect unauthorized registry modifications and persistence mechanisms using baseline snapshot diffs and simulated autorun triggers.",
-    mitre: ["T1547 Boot or Logon Autostart Execution", "T1112 Modify Registry"],
-    tags: ["Python", "Windows Internals", "Registry", "Persistence Detection"],
-    repo: "https://github.com/sabsec-h4x/Windows-Registry-Change-Monitoring-System"
-  }
-];
-
-const experienceData = [
-  {
-    date: "Apr 2026 — Jun 2026",
-    role: "Security Analyst Intern",
-    company: "Infoziant",
-    bullets: [
-      "Conducted DAST and manual web application testing across live bug bounty programs and Vulnerability Disclosure Programs (VDP).",
-      "Investigated exposed user and database credentials to prevent unauthorized account takeovers.",
-      "Responsible vulnerability disclosure resulted in official recognition on the University of Texas at Austin (UT Austin) Security Hall of Fame."
-    ]
-  },
-  {
-    date: "Feb 2026 — May 2026",
-    role: "Cybersecurity Intern",
-    company: "Unified Mentor Pvt. Ltd.",
-    bullets: [
-      "Completed rigorous hands-on training in networking, web security, OSINT, malware analysis, cryptography, and phishing triage.",
-      "Architected and deployed SentinelShield (WAF & IDS) with machine learning-based anomaly scoring.",
-      "Engineered an automated Windows Registry Change Monitoring & Persistence Detection tool in Python."
-    ]
-  },
-  {
-    date: "03 Jul 2026 — 30 Days",
-    role: "Cyber Security Intern",
-    company: "SkillCert Global Private Limited",
-    bullets: [
-      "Completed a specialized full-time internship focused on Cybersecurity Vulnerability Analysis Using Python.",
-      "Authored remediation guidelines and practical security challenge reports.",
-      "Contributed core scanning modules to the VoidScan assessment platform."
-    ]
-  },
-  {
-    date: "Aug 2025",
-    role: "Lead CTF Organizer",
-    company: "Knull CTF — Root@war",
-    bullets: [
-      "Spearheaded technical planning and operational execution for the Root@war CTF competition.",
-      "Developed web exploitation and digital forensics challenges while maintaining reliable scoring infrastructure."
-    ]
-  }
-];
-
-const certsData = [
-  { name: "Certified Ethical Hacker (CEH)", issuer: "EC-Council", status: "ONGOING", links: [] },
-  { name: "Security Operations Fundamentals", issuer: "Palo Alto Networks", status: "COMPLETED", links: ["https://drive.google.com/file/d/1UfHGrAC8yhiOLTaEGTSLe6IwXBSaj6GW/view?usp=sharing"] },
-  { name: "Introduction to Splunk & Scheduling Reports", issuer: "Splunk", status: "COMPLETED", links: ["https://drive.google.com/file/d/1isImuyqnGRh8B8fqziIl5XURM9DKBo4n/view?usp=sharing","https://drive.google.com/file/d/1I23UoZqzb33XscFf9mU9gLbDgW3B-Bbb/view?usp=sharing"] },
-  { name: "The Absolute Guide to MITRE ATT&CK", issuer: "Purple Academy / Picus Security", status: "COMPLETED", links: ["https://drive.google.com/file/d/11JOm7MjbWNY21H8vptE2Wmsp1KR0BIuY/view?usp=sharing"] },
-  { name: "Cybersecurity Essentials & Intro to Cyber Security", issuer: "Cisco Networking Academy", status: "COMPLETED", links: ["https://drive.google.com/file/d/1bqV2tQkk8TRpTdV4C_Q9VBplurKZ5-OF/view?usp=sharing"] },
-  { name: "Linux Fundamentals", issuer: "TCM Security", status: "COMPLETED", links: [] }
-];
-
-const achData = [
-  { tag: "RESEARCH RECOGNITION", title: "UT Austin Security Hall of Fame", desc: "Recognized for responsible vulnerability disclosure uncovering sensitive credential exposure." },
-  { tag: "CTF COMPETITION", title: "1st Place — CTF Quest", desc: "Champion at the Thiran Hackathon 2026 CTF Competition." },
-  { tag: "CTF COMPETITION", title: "3rd Place — PhantomFlags", desc: "Podium placement at DRESTEIN '25 National Technical Symposium CTF." },
-  { tag: "CTF COMPETITION", title: "3rd Place — Cybercom CTF 2025", desc: "Ranked 3rd among competitive collegiate cybersecurity teams." },
-  { tag: "BLUE TEAM BOOTCAMP", title: "30-Day SOC Challenge", desc: "Completed 30 consecutive days of intensive hands-on SOC alert triage and log investigation." }
-];
-
-function renderProjects(filter = 'all') {
-  const container = document.getElementById('projectsGrid');
-  const filtered = (filter === 'all') ? projectsData : projectsData.filter(p => p.category === filter);
-  container.innerHTML = filtered.map(p => `
-    <article class="glass-card project-card reveal show">
-      <div class="card-top">
-        <div class="eyebrow">${p.badge}</div>
-        <span class="badge badge-blue">${p.timeframe}</span>
+  <!-- PROJECT DETAILS INSPECTION MODAL -->
+  <div class="modal-overlay" id="projectModal">
+    <div class="modal-box">
+      <div class="modal-box-head">
+        <div id="modalProjCategory" style="font-family:var(--font-mono);font-size:0.75rem;color:var(--primary)">PROJECT INSPECTION</div>
+        <button class="modal-close" onclick="closeProjectModal()">✕</button>
       </div>
-      <h3>${p.title}</h3>
-      <p>${p.desc}</p>
-      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px">
-        ${p.mitre ? p.mitre.map(m => `<span class="mitre-badge">⚔ ${m}</span>`).join('') : ''}
+      <div class="modal-box-body" id="modalProjBody">
+        <!-- Injected via JS -->
       </div>
-      <div class="tags-list">${p.tags.map(t => `<span class="tag-item">${t}</span>`).join('')}</div>
-      <div class="project-actions">
-        ${p.repo ? `<a href="${p.repo}" target="_blank" rel="noopener">GitHub Repository ↗</a>` : '<span>Internal Tool</span>'}
-        <span style="font-family:var(--font-mono);font-size:0.65rem;color:var(--neon-cyan)">ACTIVE</span>
-      </div>
-    </article>
-  `).join('');
-}
-
-function filterProjects(cat) {
-  playBeep(700, 'sine', 0.05);
-  document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
-  event.target.classList.add('active');
-  renderProjects(cat);
-}
-
-function renderExperience() {
-  document.getElementById('experienceContainer').innerHTML = experienceData.map(e => `
-    <div class="glass-card timeline-item reveal">
-      <div class="card-top"><div class="eyebrow">${e.date}</div><span class="badge badge-cyan">${e.role}</span></div>
-      <h3>${e.role}</h3>
-      <div class="company-name">@ ${e.company}</div>
-      <ul>${e.bullets.map(b => `<li>${b}</li>`).join('')}</ul>
     </div>
-  `).join('');
-}
+  </div>
 
-function renderCertifications() {
-  document.getElementById('certGrid').innerHTML = certsData.map((c, i) => `
-    <article class="glass-card cert-card reveal">
-      <div>
-        <div class="card-top"><div class="eyebrow">CERTIFICATION 0${i + 1}</div><span class="badge ${c.status === 'COMPLETED' ? 'badge-cyan' : 'badge-amber'}">${c.status}</span></div>
-        <h3>${c.name}</h3>
-        <div class="issuer">Issuer: ${c.issuer}</div>
-      </div>
-      <div class="cert-links">
-        ${c.links.length > 0 ? c.links.map((link, idx) => `<a class="btn btn-sm" href="${link}" target="_blank" rel="noopener">View Certificate ${c.links.length > 1 ? '#' + (idx + 1) : ''} ↗</a>`).join('') : `<span style="font-family:var(--font-mono);font-size:0.7rem;color:var(--text-dim)">${c.status === 'ONGOING' ? 'Course in progress' : 'Credential on file'}</span>`}
-      </div>
-    </article>
-  `).join('');
-}
+  <script>
+    /* ==========================================================================
+       1. WEB AUDIO API SYNTHESIZER
+       ========================================================================== */
+    let audioActive = true;
+    let audioCtx = null;
 
-function renderAchievements() {
-  document.getElementById('achGrid').innerHTML = achData.map(a => `
-    <article class="glass-card reveal">
-      <div class="card-top"><div class="eyebrow">${a.tag}</div><span style="color:var(--neon-cyan)">★</span></div>
-      <h3 style="font-size:1.15rem;margin:6px 0 8px">${a.title}</h3>
-      <p style="color:var(--text-muted);font-size:0.85rem">${a.desc}</p>
-    </article>
-  `).join('');
-}
+    function playTacticalBeep(freq = 880, type = 'sine', duration = 0.08) {
+      if (!audioActive) return;
+      try {
+        if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        if (audioCtx.state === 'suspended') audioCtx.resume();
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+        gain.gain.setValueAtTime(0.035, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + duration);
+      } catch (e) {}
+    }
 
-const termCommands = {
-  help: () => `Available commands:<br>
-    &nbsp;&nbsp;<span class="term-green">whoami</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Sabareeshwari's profile summary<br>
-    &nbsp;&nbsp;<span class="term-green">skills</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Technical toolset & security proficiencies<br>
-    &nbsp;&nbsp;<span class="term-green">projects</span>&nbsp;&nbsp;&nbsp;- Key defensive engineering repositories<br>
-    &nbsp;&nbsp;<span class="term-green">certs</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Verified certifications list<br>
-    &nbsp;&nbsp;<span class="term-green">contact</span>&nbsp;&nbsp;&nbsp;&nbsp;- Direct communication channels<br>
-    &nbsp;&nbsp;<span class="term-green">clear</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Clear terminal window`,
-  whoami: () => `Sabareeshwari S — Cybersecurity Engineering Student & Aspiring SOC Analyst.<br>Specialized in Blue Team operations, SIEM detection engineering, Sysmon triage, and CTF security research.`,
-  skills: () => `SIEM: Wazuh, Splunk, Sysmon, Wireshark, n8n<br>SOC: Alert Triage, Incident Response, MITRE ATT&CK, Threat Hunting<br>Offensive/DAST: Web Testing, OSINT, Phishing Analysis<br>Languages: Python, Bash, C`,
-  projects: () => `1. [Home SOC Lab] - Wazuh + Sysmon + Windows + Kali telemetry<br>2. [VoidScan] - Automated reconnaissance & vulnerability correlation<br>3. [Multi-Layer Phishing Tool] - IMAP inbox & VirusTotal analysis<br>4. [SentinelShield] - ML-powered WAF & IDS<br>5. [Registry Monitor] - Windows persistence detection system`,
-  certs: () => `[+] Palo Alto Networks: Security Operations Fundamentals<br>[+] Splunk: Intro to Splunk & Scheduling Alerts<br>[+] Picus Security: MITRE ATT&CK Guide<br>[+] Cisco: Cybersecurity Essentials<br>[+] EC-Council: CEH (Ongoing)`,
-  contact: () => `Email: sabariselvarajan1119@gmail.com<br>GitHub: https://github.com/sabsec-h4x<br>LinkedIn: https://www.linkedin.com/in/sabareeshwari-selvarajan-75a985294/`,
-  clear: () => { document.getElementById('termOutputHistory').innerHTML = ''; return null; }
-};
+    function toggleAudio() {
+      audioActive = !audioActive;
+      document.getElementById('soundStatus').textContent = audioActive ? 'ON' : 'OFF';
+      if (audioActive) playTacticalBeep(920, 'sine', 0.1);
+    }
+    document.getElementById('soundToggle').addEventListener('click', toggleAudio);
 
-function executeTerm(cmdName) {
-  playBeep(850, 'square', 0.04);
-  const input = cmdName.trim().toLowerCase();
-  const history = document.getElementById('termOutputHistory');
-  const termBody = document.getElementById('termBody');
-  if (input === 'clear') { termCommands.clear(); return; }
-  const outDiv = document.createElement('div');
-  outDiv.innerHTML = `<div><span class="term-prompt">sabari@soc</span>:<span class="term-user">~</span>$ <span class="term-cmd">${input}</span></div>`;
-  if (termCommands[input]) {
-    const res = termCommands[input]();
-    if (res) outDiv.innerHTML += `<div class="term-res">${res}</div>`;
-  } else {
-    outDiv.innerHTML += `<div class="term-res term-red">Command not recognized: '${input}'. Type <span style="color:var(--neon-cyan)">'help'</span>.</div>`;
-  }
-  history.appendChild(outDiv);
-  termBody.scrollTop = termBody.scrollHeight;
-}
+    /* ==========================================================================
+       2. LIVE UTC CLOCK
+       ========================================================================== */
+    function updateClock() {
+      const now = new Date();
+      document.getElementById('utcClock').textContent = now.toISOString().substring(11, 19) + ' UTC';
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
 
-document.getElementById('termInput').addEventListener('keydown', (e) => {
-  if (e.key === 'Enter') {
-    const val = e.target.value;
-    if (val.trim()) { executeTerm(val); e.target.value = ''; }
-  }
-});
+    /* ==========================================================================
+       3. TYPEWRITER EFFECT
+       ========================================================================== */
+    const roles = [
+      "SOC Analyst & Threat Detection",
+      "Blue Teamer & Incident Responder",
+      "SIEM Telemetry Engineer (Wazuh/Splunk)",
+      "CTF Champion (T3AM KNULL)",
+      "Vulnerability Researcher (UT Austin HOF)"
+    ];
+    let roleIdx = 0, charIdx = 0, isDeleting = false;
+    const typewriterEl = document.getElementById('typewriterText');
 
-function copyEmail() {
-  playBeep(1000, 'sine', 0.08);
-  navigator.clipboard.writeText("sabariselvarajan1119@gmail.com").then(() => {
-    const toast = document.getElementById('toast');
-    toast.classList.add('show');
-    setTimeout(() => toast.classList.remove('show'), 3000);
-  });
-}
+    function typeEffect() {
+      const currentRole = roles[roleIdx];
+      if (isDeleting) {
+        typewriterEl.textContent = currentRole.substring(0, charIdx - 1);
+        charIdx--;
+      } else {
+        typewriterEl.textContent = currentRole.substring(0, charIdx + 1);
+        charIdx++;
+      }
 
-const menuBtn = document.getElementById('menuToggle');
-const navLinks = document.getElementById('navLinks');
-menuBtn.addEventListener('click', () => { playBeep(600, 'sine', 0.04); navLinks.classList.toggle('open'); });
-document.querySelectorAll('.nav-links a').forEach(a => { a.addEventListener('click', () => { navLinks.classList.remove('open'); playBeep(750, 'sine', 0.04); }); });
+      let speed = isDeleting ? 30 : 65;
+      if (!isDeleting && charIdx === currentRole.length) {
+        speed = 2000;
+        isDeleting = true;
+      } else if (isDeleting && charIdx === 0) {
+        isDeleting = false;
+        roleIdx = (roleIdx + 1) % roles.length;
+        speed = 400;
+      }
+      setTimeout(typeEffect, speed);
+    }
+    typeEffect();
 
-const canvas = document.getElementById('cyber-canvas');
-const ctx = canvas.getContext('2d');
-let w, h, particles = [];
-function resizeCanvas() { w = canvas.width = window.innerWidth; h = canvas.height = window.innerHeight; }
-window.addEventListener('resize', resizeCanvas);
-resizeCanvas();
+    /* ==========================================================================
+       4. THEME SWITCHER
+       ========================================================================== */
+    function setTheme(name) {
+      document.documentElement.setAttribute('data-theme', name);
+      playTacticalBeep(950, 'sine', 0.05);
+    }
 
-class Particle {
-  constructor() {
-    this.x = Math.random() * w; this.y = Math.random() * h;
-    this.vx = (Math.random() - 0.5) * 0.4; this.vy = (Math.random() - 0.5) * 0.4;
-    this.radius = Math.random() * 1.5 + 0.5;
-  }
-  update() { this.x += this.vx; this.y += this.vy; if (this.x < 0) this.x = w; if (this.x > w) this.x = 0; if (this.y < 0) this.y = h; if (this.y > h) this.y = 0; }
-  draw() { ctx.beginPath(); ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2); ctx.fillStyle = "rgba(0, 245, 160, 0.45)"; ctx.fill(); }
-}
-for (let i = 0; i < 45; i++) particles.push(new Particle());
+    /* ==========================================================================
+       5. DATA REPOSITORIES (PROJECTS, EXPERIENCE, CERTS)
+       ========================================================================== */
+    const projectsData = [
+      {
+        id: "soc-lab",
+        title: "Home SOC Detection Lab",
+        category: "soc",
+        badge: "SOC / BLUE TEAM",
+        timeframe: "2026 — Present",
+        desc: "A self-built Wazuh SIEM telemetry environment orchestrating Sysmon, Windows 11 and Kali Linux for controlled attack simulation, event log ingestion, and detection engineering.",
+        mitre: ["T1059 Command Execution", "T1046 Network Scan"],
+        tags: ["Wazuh", "Sysmon", "Windows 11", "Kali Linux", "Detection Engineering"],
+        repo: "https://github.com/sabsec-h4x/windows-soc-detection-lab",
+        details: {
+          hypothesis: "Adversary command execution and discovery activities can be captured via Sysmon Event IDs 1, 3, and 22, forwarded through Wazuh Agent 4.14.7, and matched against custom detection rules.",
+          telemetry: "Sysmon 15.21 (ProcessCreate, NetworkConnect, DnsQuery, FileCreate, RegistryEvent) + Windows Security Auditing (Event 4624, 4625, 4798).",
+          architecture: "Kali Linux Attacker -> Windows 11 Pro Endpoint (SABU) -> Wazuh Manager (Ubuntu Server via TCP 1514) -> Wazuh Indexer & Dashboard."
+        }
+      },
+      {
+        id: "voidscan",
+        title: "VoidScan — Security Assessment Platform",
+        category: "threat",
+        badge: "ASSESSMENT / RECON",
+        timeframe: "2026",
+        desc: "Kali Linux–based automated security assessment platform that streamlines reconnaissance, asset discovery, vulnerability detection and risk correlation with real-time dashboard visualizations.",
+        mitre: ["T1595 Active Scanning", "T1592 Gather Victim Host Info"],
+        tags: ["Kali Linux", "Python", "Reconnaissance", "Vulnerability Detection", "Risk Analysis"],
+        repo: "https://github.com/sabsec-h4x/VoidScan",
+        details: {
+          hypothesis: "Automating network reconnaissance, port auditing, and web service finger-printing reduces enumeration time while compiling structured risk reports for Blue Teams.",
+          telemetry: "Active scanning telemetry, port audit results, banner grabs, and web vulnerability outputs.",
+          architecture: "Modular Python scanning engine integrated with Kali Linux toolchain and real-time finding correlation dashboard."
+        }
+      },
+      {
+        id: "phishing",
+        title: "Multi-Layered Phishing Detection Tool",
+        category: "threat",
+        badge: "THREAT DETECTION",
+        timeframe: "2026 — Present",
+        desc: "Automated phishing detection tool with IMAP inbox monitoring, body text tokenization, and live VirusTotal / URLScan.io API integration for instant reputation scoring.",
+        mitre: ["T1566 Phishing", "T1204 User Execution"],
+        tags: ["Python", "Flask", "IMAP", "VirusTotal API", "URLScan.io"],
+        repo: "https://github.com/sabsec-h4x/Multi-Layered-Phishing-Detection-Tool",
+        details: {
+          hypothesis: "Real-time IMAP email inbox polling combined with multi-source URL and file reputation engines prevents credential harvesting before user click execution.",
+          telemetry: "Parsed email headers (SPF, DKIM, DMARC), extracted attachment hashes, and embedded link reputations.",
+          architecture: "Python IMAP listener -> Body NLP & link extractor -> VirusTotal & URLScan.io API queries -> Flask Alert Dashboard."
+        }
+      },
+      {
+        id: "sentinelshield",
+        title: "SentinelShield — WAF & IDS",
+        category: "appsec",
+        badge: "WAF / IDS",
+        timeframe: "Feb 2026 — May 2026",
+        desc: "Full-stack Web Application Firewall and Intrusion Detection System built with FastAPI and React, featuring Isolation Forest machine learning anomaly detection, GeoIP filtering, and Redis rate limiting.",
+        mitre: ["T1190 Exploit Public-Facing App"],
+        tags: ["FastAPI", "React", "Isolation Forest", "Redis", "GeoIP", "AppSec"],
+        repo: "https://github.com/sabsec-h4x/sentinelshield",
+        details: {
+          hypothesis: "Combining signature-based inspection with Isolation Forest ML anomaly scoring mitigates zero-day HTTP parameter tampering and distributed Layer 7 attacks.",
+          telemetry: "HTTP request headers, payload length, query parameters, GeoIP origins, and sliding-window request frequencies.",
+          architecture: "Reverse Proxy Middleware (FastAPI) -> Redis Token Bucket Rate Limiter -> Isolation Forest Scorer -> React SecOps Dashboard."
+        }
+      },
+      {
+        id: "registry",
+        title: "Windows Registry Integrity Monitor",
+        category: "endpoint",
+        badge: "ENDPOINT SECURITY",
+        timeframe: "Feb 2026 — Mar 2026",
+        desc: "Endpoint integrity monitoring tool designed to detect unauthorized registry modifications and persistence mechanisms using baseline snapshot diffs and simulated autorun triggers.",
+        mitre: ["T1547 Boot or Logon Autostart Execution", "T1112 Modify Registry"],
+        tags: ["Python", "Windows Internals", "Registry", "Persistence Detection"],
+        repo: "https://github.com/sabsec-h4x/Windows-Registry-Change-Monitoring-System",
+        details: {
+          hypothesis: "Snapshot-based hashing of critical Run/RunOnce registry keys detects silent malware persistence mechanisms that bypass traditional antivirus.",
+          telemetry: "Windows Registry keys: HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run, RunOnce, and Services.",
+          architecture: "Python Windows API hook -> Baseline snapshot SQLite cache -> Differential comparison engine -> Alert logger."
+        }
+      }
+    ];
 
-function animateCanvas() {
-  ctx.clearRect(0, 0, w, h);
-  for (let i = 0; i < particles.length; i++) {
-    particles[i].update(); particles[i].draw();
-    for (let j = i + 1; j < particles.length; j++) {
-      const dx = particles[i].x - particles[j].x, dy = particles[i].y - particles[j].y, dist = Math.sqrt(dx * dx + dy * dy);
-      if (dist < 110) {
-        ctx.beginPath(); ctx.moveTo(particles[i].x, particles[i].y); ctx.lineTo(particles[j].x, particles[j].y);
-        ctx.strokeStyle = `rgba(0, 245, 160, ${0.12 * (1 - dist / 110)})`; ctx.lineWidth = 0.8; ctx.stroke();
+    const experienceData = [
+      {
+        date: "Apr 2026 — Jun 2026",
+        role: "Security Analyst Intern",
+        company: "Infoziant",
+        bullets: [
+          "Conducted DAST and manual web application security testing on live bug bounty and Vulnerability Disclosure Programs (VDP).",
+          "Investigated exposed user and database credentials to eliminate potential unauthorized account takeover paths.",
+          "Responsible vulnerability disclosure resulted in official recognition on the University of Texas at Austin (UT Austin) Security Hall of Fame."
+        ]
+      },
+      {
+        date: "Feb 2026 — May 2026",
+        role: "Cybersecurity Intern",
+        company: "Unified Mentor Pvt. Ltd.",
+        bullets: [
+          "Completed hands-on operational training in networking, web security, OSINT, malware analysis, cryptography, and phishing triage.",
+          "Architected and deployed SentinelShield (WAF & IDS) with machine learning-based anomaly scoring.",
+          "Engineered an automated Windows Registry Change Monitoring & Persistence Detection tool in Python."
+        ]
+      },
+      {
+        date: "03 Jul 2026 — 30 Days",
+        role: "Cyber Security Intern",
+        company: "SkillCert Global Private Limited",
+        bullets: [
+          "Completed a full-time internship focused on Cybersecurity Vulnerability Analysis Using Python.",
+          "Authored remediation guidelines and practical challenge reports.",
+          "Contributed core scanning modules to the VoidScan assessment platform."
+        ]
+      },
+      {
+        date: "Aug 2025",
+        role: "Lead CTF Organizer",
+        company: "Knull CTF — Root@war",
+        bullets: [
+          "Spearheaded technical planning and operational execution for the Root@war CTF competition.",
+          "Developed web exploitation and digital forensics challenges while maintaining reliable scoring infrastructure."
+        ]
+      }
+    ];
+
+    const certsData = [
+      {
+        name: "Security Operations Fundamentals",
+        issuer: "Palo Alto Networks",
+        status: "COMPLETED",
+        links: ["https://drive.google.com/file/d/1UfHGrAC8yhiOLTaEGTSLe6IwXBSaj6GW/view?usp=sharing"]
+      },
+      {
+        name: "Introduction to Splunk & Scheduling Reports and Alerts",
+        issuer: "Splunk",
+        status: "COMPLETED",
+        links: [
+          "https://drive.google.com/file/d/1isImuyqnGRh8B8fqziIl5XURM9DKBo4n/view?usp=sharing",
+          "https://drive.google.com/file/d/1I23UoZqzb33XscFf9mU9gLbDgW3B-Bbb/view?usp=sharing"
+        ]
+      },
+      {
+        name: "The Absolute Guide to MITRE ATT&CK",
+        issuer: "Purple Academy / Picus Security",
+        status: "COMPLETED",
+        links: ["https://drive.google.com/file/d/11JOm7MjbWNY21H8vptE2Wmsp1KR0BIuY/view?usp=sharing"]
+      },
+      {
+        name: "Cybersecurity Essentials & Intro to Cyber Security",
+        issuer: "Cisco Networking Academy",
+        status: "COMPLETED",
+        links: ["https://drive.google.com/file/d/1bqV2tQkk8TRpTdV4C_Q9VBplurKZ5-OF/view?usp=sharing"]
+      },
+      {
+        name: "Linux Fundamentals",
+        issuer: "TCM Security",
+        status: "COMPLETED",
+        links: []
+      },
+      {
+        name: "Certified Ethical Hacker (CEH)",
+        issuer: "EC-Council",
+        status: "ONGOING",
+        links: []
+      }
+    ];
+
+    /* ==========================================================================
+       6. RENDER PROJECTS, EXPERIENCE & CERTS
+       ========================================================================== */
+    function renderProjects(filter = 'all') {
+      const container = document.getElementById('projectsGrid');
+      const filtered = (filter === 'all') 
+        ? projectsData 
+        : projectsData.filter(p => p.category === filter);
+
+      container.innerHTML = filtered.map(p => `
+        <article class="bento-card project-card reveal show">
+          <div class="card-head">
+            <div class="eyebrow">${p.badge}</div>
+            <span class="badge badge-cyan">${p.timeframe}</span>
+          </div>
+          <h3>${p.title}</h3>
+          <p>${p.desc}</p>
+          
+          <div class="mitre-tags">
+            ${p.mitre ? p.mitre.map(m => `<span class="mitre-badge">⚔ ${m}</span>`).join('') : ''}
+          </div>
+
+          <div class="stack-tags">
+            ${p.tags.map(t => `<span class="stack-tag">${t}</span>`).join('')}
+          </div>
+
+          <div class="project-footer">
+            <button class="btn btn-sm" onclick="inspectProject('${p.id}')">Inspect Telemetry 🔍</button>
+            ${p.repo ? `<a class="project-link" href="${p.repo}" target="_blank" rel="noopener">GitHub ↗</a>` : '<span style="font-family:var(--font-mono);font-size:0.7rem;color:var(--text-muted)">Internal Tool</span>'}
+          </div>
+        </article>
+      `).join('');
+      initSpotlightCards();
+    }
+
+    function filterProjects(cat) {
+      playTacticalBeep(700, 'sine', 0.05);
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      event.target.classList.add('active');
+      renderProjects(cat);
+    }
+
+    function inspectProject(id) {
+      const proj = projectsData.find(p => p.id === id);
+      if (!proj) return;
+      playTacticalBeep(850, 'sine', 0.08);
+
+      document.getElementById('modalProjCategory').textContent = `${proj.badge} // TELEMETRY AUDIT`;
+      document.getElementById('modalProjBody').innerHTML = `
+        <h2 style="font-family:var(--font-display);font-size:1.6rem;margin-bottom:12px">${proj.title}</h2>
+        <p style="color:var(--text-secondary);font-size:0.95rem;margin-bottom:20px">${proj.desc}</p>
+
+        <div style="background:rgba(255,255,255,0.02);border:1px solid var(--border-subtle);border-radius:8px;padding:16px;margin-bottom:16px">
+          <b style="color:var(--primary);font-family:var(--font-mono);font-size:0.8rem;display:block;margin-bottom:6px">DETECTION HYPOTHESIS</b>
+          <p style="color:#cbd5e1;font-size:0.85rem">${proj.details.hypothesis}</p>
+        </div>
+
+        <div style="background:rgba(255,255,255,0.02);border:1px solid var(--border-subtle);border-radius:8px;padding:16px;margin-bottom:16px">
+          <b style="color:var(--secondary);font-family:var(--font-mono);font-size:0.8rem;display:block;margin-bottom:6px">TELEMETRY & SENSORS</b>
+          <p style="color:#cbd5e1;font-size:0.85rem">${proj.details.telemetry}</p>
+        </div>
+
+        <div style="background:rgba(255,255,255,0.02);border:1px solid var(--border-subtle);border-radius:8px;padding:16px;margin-bottom:24px">
+          <b style="color:var(--violet);font-family:var(--font-mono);font-size:0.8rem;display:block;margin-bottom:6px">ARCHITECTURE & DATA FLOW</b>
+          <p style="color:#cbd5e1;font-size:0.85rem">${proj.details.architecture}</p>
+        </div>
+
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          ${proj.repo ? `<a class="btn btn-primary" href="${proj.repo}" target="_blank" rel="noopener">Open Repository on GitHub ↗</a>` : ''}
+          <button class="btn btn-secondary" onclick="closeProjectModal()">Close Inspector</button>
+        </div>
+      `;
+      document.getElementById('projectModal').classList.add('active');
+    }
+
+    function closeProjectModal() {
+      document.getElementById('projectModal').classList.remove('active');
+    }
+
+    function renderExperience() {
+      document.getElementById('experienceWrap').innerHTML = experienceData.map(e => `
+        <div class="bento-card timeline-node reveal">
+          <div class="card-head">
+            <div class="eyebrow">${e.date}</div>
+            <span class="badge badge-primary">${e.role}</span>
+          </div>
+          <h3>${e.role}</h3>
+          <div class="timeline-company">@ ${e.company}</div>
+          <ul>
+            ${e.bullets.map(b => `<li>${b}</li>`).join('')}
+          </ul>
+        </div>
+      `).join('');
+    }
+
+    function renderCertifications() {
+      document.getElementById('certGrid').innerHTML = certsData.map((c, i) => `
+        <article class="bento-card cert-card reveal">
+          <div>
+            <div class="card-head">
+              <div class="eyebrow">CREDENTIAL 0${i + 1}</div>
+              <span class="badge ${c.status === 'COMPLETED' ? 'badge-primary' : 'badge-amber'}">${c.status}</span>
+            </div>
+            <h3>${c.name}</h3>
+            <div class="cert-issuer">Issuer: ${c.issuer}</div>
+          </div>
+          <div class="cert-actions">
+            ${c.links.length > 0 
+              ? c.links.map((link, idx) => `
+                  <a class="btn btn-sm" href="${link}" target="_blank" rel="noopener">
+                    View Certificate ${c.links.length > 1 ? '#' + (idx + 1) : ''} ↗
+                  </a>
+                `).join('')
+              : `<span style="font-family:var(--font-mono);font-size:0.7rem;color:var(--text-muted)">
+                  ${c.status === 'ONGOING' ? 'Coursework in progress' : 'Verification on file'}
+                </span>`
+            }
+          </div>
+        </article>
+      `).join('');
+    }
+
+    /* ==========================================================================
+       7. SOC LAB NODE INSPECTOR
+       ========================================================================== */
+    const nodeData = {
+      attacker: {
+        title: "KALI LINUX ATTACKER NODE",
+        role: "Adversary Emulation & Controlled Security Scenarios",
+        specs: [
+          "<b>Role:</b> Adversary simulation machine executing non-destructive tests",
+          "<b>Tools:</b> Nmap, Metasploit, Hydra, cURL, Responder",
+          "<b>Target Host:</b> Windows 11 Endpoint (192.168.56.105)",
+          "<b>Network Scope:</b> Isolated Host-Only Subnet (192.168.56.0/24)"
+        ]
+      },
+      endpoint: {
+        title: "WINDOWS 11 PRO TARGET (SABU)",
+        role: "Telemetry Generation & Sensor Logging",
+        specs: [
+          "<b>Hostname:</b> SABU | <b>IP:</b> 192.168.56.105",
+          "<b>Sensor:</b> Microsoft Sysmon v15.21 (Process, Network, DNS, File, Registry)",
+          "<b>Logging:</b> Advanced Windows Audit Policies (Account Logon, Process Tracking)",
+          "<b>Agent:</b> Wazuh Agent v4.14.7 (Service: WazuhSvc active via TCP 1514)"
+        ]
+      },
+      siem: {
+        title: "WAZUH SIEM MANAGER (Ubuntu 22.04 LTS)",
+        role: "Core Telemetry Ingestion, Decoding & Correlation Engine",
+        specs: [
+          "<b>IP Address:</b> 192.168.56.104",
+          "<b>Listening Port:</b> TCP 1514 (Encrypted Log Stream)",
+          "<b>Active Modules:</b> Analysisd, Remoted, Wazuh Indexer (OpenSearch), Wazuh Dashboard",
+          "<b>Rule Engine:</b> Built-in decoders & custom detection rules matching MITRE ATT&CK techniques"
+        ]
+      },
+      soar: {
+        title: "SOAR / INCIDENT TRIAGE CENTER",
+        role: "Alert Enrichment, Response & Notification Pipelines",
+        specs: [
+          "<b>Integration:</b> n8n Workflow Automation & Webhooks",
+          "<b>Enrichment:</b> VirusTotal API, AbuseIPDB, URLScan.io lookups",
+          "<b>SOC Workflow:</b> Automated high-severity alert forwarding & ticketing",
+          "<b>Containment:</b> Simulated host isolation triggers & rule tuning"
+        ]
+      }
+    };
+
+    function selectNode(id) {
+      playTacticalBeep(800, 'square', 0.04);
+      document.querySelectorAll('.pipeline-card').forEach(c => c.classList.remove('active'));
+      const activeCard = document.getElementById(`node-${id}`);
+      if (activeCard) activeCard.classList.add('active');
+
+      const data = nodeData[id];
+      if (!data) return;
+
+      document.getElementById('inspTitle').textContent = data.title;
+      document.getElementById('inspRole').textContent = data.role;
+      document.getElementById('inspSpecs').innerHTML = data.specs.map(s => `<li>${s}</li>`).join('');
+    }
+
+    /* ==========================================================================
+       8. INTERACTIVE CLI TERMINAL ENGINE
+       ========================================================================== */
+    const terminalCommands = {
+      help: () => `Available commands:<br>
+        &nbsp;&nbsp;<span class="term-green">whoami</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Sabareeshwari's profile summary<br>
+        &nbsp;&nbsp;<span class="term-green">skills</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Technical toolset & security proficiencies<br>
+        &nbsp;&nbsp;<span class="term-green">projects</span>&nbsp;&nbsp;&nbsp;- Key defensive engineering repositories<br>
+        &nbsp;&nbsp;<span class="term-green">lab-status</span>&nbsp;- Live telemetry environment specifications<br>
+        &nbsp;&nbsp;<span class="term-green">certs</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Verified certifications list<br>
+        &nbsp;&nbsp;<span class="term-green">contact</span>&nbsp;&nbsp;&nbsp;&nbsp;- Direct communication channels<br>
+        &nbsp;&nbsp;<span class="term-green">clear</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Clear terminal window`,
+      
+      whoami: () => `Sabareeshwari S — Cybersecurity Engineering Student & Aspiring SOC Analyst.<br>
+        Specialized in Blue Team operations, SIEM detection engineering, Sysmon triage, and CTF security research.`,
+      
+      skills: () => `SIEM: Wazuh, Splunk, Sysmon, Wireshark, n8n<br>
+        SOC: Alert Triage, Incident Response, MITRE ATT&CK, Threat Hunting<br>
+        Offensive/DAST: Web Testing, OSINT, Phishing Analysis<br>
+        Languages: Python, Bash, C`,
+      
+      projects: () => `1. [Home SOC Lab] - Wazuh + Sysmon + Windows + Kali telemetry<br>
+        2. [VoidScan] - Automated reconnaissance & vulnerability correlation<br>
+        3. [Multi-Layer Phishing Tool] - IMAP inbox & VirusTotal analysis<br>
+        4. [SentinelShield] - ML-powered WAF & Intrusion Detection System<br>
+        5. [Registry Monitor] - Windows persistence detection system`,
+      
+      'lab-status': () => `Endpoint: Windows 11 Pro (SABU: 192.168.56.105) - Wazuh Agent 4.14.7 Active<br>
+        Manager: Ubuntu Server (192.168.56.104) - Port TCP 1514 Listening<br>
+        Telemetry: Application, Security, System, Sysmon/Operational (Event IDs 1, 3, 5, 11, 12, 13, 22)`,
+      
+      certs: () => `[+] Palo Alto Networks: Security Operations Fundamentals<br>
+        [+] Splunk: Intro to Splunk & Scheduling Alerts (Parts 1 & 2)<br>
+        [+] Picus Security: The Absolute Guide to MITRE ATT&CK<br>
+        [+] Cisco: Cybersecurity Essentials<br>
+        [+] EC-Council: CEH (Ongoing)`,
+      
+      contact: () => `Email: sabariselvarajan1119@gmail.com<br>
+        GitHub: https://github.com/sabsec-h4x<br>
+        LinkedIn: https://www.linkedin.com/in/sabareeshwari-selvarajan-75a985294/`,
+      
+      clear: () => {
+        document.getElementById('termHistory').innerHTML = '';
+        return null;
+      }
+    };
+
+    function runTermCommand(cmd) {
+      playTacticalBeep(850, 'square', 0.04);
+      const cleanCmd = cmd.trim().toLowerCase();
+      const history = document.getElementById('termHistory');
+      const screen = document.getElementById('terminalScreen');
+
+      if (cleanCmd === 'clear') {
+        terminalCommands.clear();
+        return;
+      }
+
+      const out = document.createElement('div');
+      out.innerHTML = `<div><span class="term-prompt">sabari@soc</span>:<span class="term-user">~</span>$ <span class="term-cmd">${cleanCmd}</span></div>`;
+
+      if (terminalCommands[cleanCmd]) {
+        const res = terminalCommands[cleanCmd]();
+        if (res) out.innerHTML += `<div class="term-res">${res}</div>`;
+      } else {
+        out.innerHTML += `<div class="term-res term-red">Command not recognized: '${cleanCmd}'. Type <span style="color:var(--primary)">'help'</span> for list.</div>`;
+      }
+
+      history.appendChild(out);
+      screen.scrollTop = screen.scrollHeight;
+    }
+
+    document.getElementById('termInput').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        const val = e.target.value;
+        if (val.trim()) {
+          runTermCommand(val);
+          e.target.value = '';
+        }
+      }
+    });
+
+    /* ==========================================================================
+       9. COMMAND PALETTE (CMD+K)
+       ========================================================================== */
+    function openCommandPalette() {
+      playTacticalBeep(900, 'sine', 0.05);
+      document.getElementById('cmdPaletteModal').classList.add('active');
+      document.getElementById('paletteSearch').focus();
+    }
+
+    function closeCommandPalette() {
+      document.getElementById('cmdPaletteModal').classList.remove('active');
+    }
+
+    function filterPalette() {
+      const q = document.getElementById('paletteSearch').value.toLowerCase();
+      const items = document.querySelectorAll('.palette-item');
+      items.forEach(item => {
+        item.style.display = item.textContent.toLowerCase().includes(q) ? 'flex' : 'none';
+      });
+    }
+
+    function navigatePalette(hash) {
+      closeCommandPalette();
+      playTacticalBeep(750, 'sine', 0.05);
+      window.location.hash = hash;
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        openCommandPalette();
+      }
+      if (e.key === 'Escape') {
+        closeCommandPalette();
+        closeProjectModal();
+      }
+    });
+
+    /* ==========================================================================
+       10. COPY EMAIL WITH TOAST
+       ========================================================================== */
+    function copyEmail() {
+      playTacticalBeep(1000, 'sine', 0.08);
+      navigator.clipboard.writeText("sabariselvarajan1119@gmail.com").then(() => {
+        const toast = document.getElementById('toast');
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 3000);
+      });
+    }
+
+    /* ==========================================================================
+       11. MOBILE MENU TOGGLE
+       ========================================================================== */
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const navMenu = document.getElementById('navMenu');
+    mobileBtn.addEventListener('click', () => {
+      playTacticalBeep(600, 'sine', 0.04);
+      navMenu.classList.toggle('open');
+    });
+    document.querySelectorAll('.nav-menu a').forEach(a => {
+      a.addEventListener('click', () => navMenu.classList.remove('open'));
+    });
+
+    /* ==========================================================================
+       12. INTERACTIVE SPOTLIGHT MOUSE TRACKER ON CARDS
+       ========================================================================== */
+    function initSpotlightCards() {
+      document.querySelectorAll('.bento-card').forEach(card => {
+        card.addEventListener('mousemove', e => {
+          const rect = card.getBoundingClientRect();
+          card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+          card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+        });
+      });
+    }
+
+    /* ==========================================================================
+       13. DYNAMIC CYBER CONSTELLATION CANVAS
+       ========================================================================== */
+    const canvas = document.getElementById('cyber-canvas');
+    const ctx = canvas.getContext('2d');
+    let w, h, particles = [];
+
+    function resizeCanvas() {
+      w = canvas.width = window.innerWidth;
+      h = canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * w;
+        this.y = Math.random() * h;
+        this.vx = (Math.random() - 0.5) * 0.4;
+        this.vy = (Math.random() - 0.5) * 0.4;
+        this.radius = Math.random() * 1.5 + 0.6;
+      }
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        if (this.x < 0) this.x = w;
+        if (this.x > w) this.x = 0;
+        if (this.y < 0) this.y = h;
+        if (this.y > h) this.y = 0;
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(0, 245, 160, 0.4)";
+        ctx.fill();
       }
     }
-  }
-  requestAnimationFrame(animateCanvas);
-}
-animateCanvas();
+    for (let i = 0; i < 45; i++) particles.push(new Particle());
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('show'); });
-}, { threshold: 0.08 });
+    function animateCanvas() {
+      ctx.clearRect(0, 0, w, h);
+      for (let i = 0; i < particles.length; i++) {
+        particles[i].update();
+        particles[i].draw();
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 110) {
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = `rgba(0, 245, 160, ${0.12 * (1 - dist / 110)})`;
+            ctx.lineWidth = 0.8;
+            ctx.stroke();
+          }
+        }
+      }
+      requestAnimationFrame(animateCanvas);
+    }
+    animateCanvas();
 
-document.addEventListener('DOMContentLoaded', () => {
-  renderProjects('all'); renderExperience(); renderCertifications(); renderAchievements();
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-});
-</script>
+    /* ==========================================================================
+       14. INTERSECTION OBSERVER FOR SCROLL REVEALS
+       ========================================================================== */
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('show');
+      });
+    }, { threshold: 0.08 });
+
+    /* ==========================================================================
+       15. INIT
+       ========================================================================== */
+    document.addEventListener('DOMContentLoaded', () => {
+      renderProjects('all');
+      renderExperience();
+      renderCertifications();
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+      initSpotlightCards();
+    });
+  </script>
 </body>
 </html>
